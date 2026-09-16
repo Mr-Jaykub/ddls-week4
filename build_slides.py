@@ -93,7 +93,9 @@ strong{color:#fff;font-weight:650}
 .two h3{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);
   font-weight:600;margin-bottom:.9rem}
 .two p{font-size:1rem;line-height:1.6;color:#ded9cc}
-.expand{display:block;font-size:.82rem;color:var(--dim);font-style:italic;margin-bottom:.4rem}
+.two h3.term{text-transform:none;letter-spacing:0;font-size:1rem;color:var(--paper);
+  font-weight:700;margin-bottom:.75rem}
+.two h3.term span{color:var(--dim);font-weight:400}
 .ask{color:var(--trust);font-size:1.05rem;margin-bottom:.7rem}
 .two li,.two p{font-size:.98rem}
 .bar{position:fixed;left:0;bottom:0;height:3px;background:var(--trust);transition:width .28s ease;z-index:10}
@@ -121,18 +123,16 @@ strong{color:#fff;font-weight:650}
   hands back two different confidence scores.</p>
   <div class="two" style="margin-top:1.4rem">
     <div>
-      <h3>pLDDT &mdash; one score per position</h3>
+      <h3 class="term">pLDDT <span>&mdash; predicted Local Distance Difference Test</span></h3>
       <p class="ask">&ldquo;Is <em>this</em> bit in the right place?&rdquo;</p>
-      <p><span class="expand">predicted Local Distance Difference Test</span>
-      Scored <strong>0&ndash;100</strong>, higher is better. Below about <strong>70</strong> the
-      model is telling you not to rely on it.</p>
+      <p>One score per position. Scored <strong>0&ndash;100</strong>, higher is better. Below
+      about <strong>70</strong> the model is telling you not to rely on it.</p>
     </div>
     <div>
-      <h3>PAE &mdash; one score per pair</h3>
+      <h3 class="term">PAE <span>&mdash; Predicted Aligned Error</span></h3>
       <p class="ask">&ldquo;Are <em>these two</em> bits right relative to each other?&rdquo;</p>
-      <p><span class="expand">Predicted Aligned Error</span>
-      An expected error in &aring;ngstr&ouml;m &mdash; a distance, so <strong>smaller is
-      better</strong>.</p>
+      <p>One score per pair of positions. An expected error in &aring;ngstr&ouml;m &mdash; a
+      distance, so <strong>smaller is better</strong>.</p>
     </div>
   </div>
   <ul style="margin-top:1.5rem">
