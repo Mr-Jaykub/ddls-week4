@@ -116,14 +116,15 @@ strong{color:#fff;font-weight:650}
   <h1>Can you trust<br>a <em>predicted</em> shape?</h1>
   <p class="lead" style="max-width:58ch">A cancer researcher has an AI-predicted 3D model of p53
   &mdash; a protein that goes wrong in roughly half of all human tumours. A chemist is about to
-  design a drug against specific positions on it, and she has to say which ones are safe to aim at.</p>
+  design a drug against specific positions on it. Her job is to warn him off the ones the model
+  is not sure about.</p>
   <div class="askbox">
     <div class="askbox-h">What she asked me for</div>
     <p>Go through positions <strong>94&ndash;312</strong> &mdash; the folded core. Flag every one
     the model is <strong>not confident</strong> about. Rank them worst first, using one rule fixed
     in advance.</p>
-    <p style="margin-top:.7rem">Not a list to avoid &mdash; a <strong>caution list</strong>:
-    &ldquo;check these before you build on them.&rdquo;</p>
+    <p style="margin-top:.7rem">Explicitly <em>not</em> a shortlist of good targets &mdash; a
+    <strong>caution list</strong>: &ldquo;check these before you build on them.&rdquo;</p>
   </div>
 </section>
 
@@ -226,12 +227,13 @@ strong{color:#fff;font-weight:650}
     </div>
   </div>
   <ul style="margin-top:1.6rem;max-width:62ch">
-    <li>The headline is <strong>good news</strong>: inside the real fold, only
-    <strong>__CORE_PCT__%</strong> of positions were flagged &mdash; and both sit on the line.
-    The core is a <strong>green light</strong>.</li>
-    <li class="warn">So the honest answer is nearly the opposite of what she expected. She asked
-    which parts were bad; the useful finding is that <strong>almost none of them are</strong>
-    &mdash; and that her range was drawn too wide.</li>
+    <li>Inside the real fold, only <strong>__CORE_PCT__%</strong> of positions were flagged
+    &mdash; and both of those sit on the line. She asked which parts the model is unsure of, and
+    the answer is <strong>almost none of them</strong>.</li>
+    <li class="warn">That is <em>not</em> the same as saying those positions are good targets. A
+    high score means the model is confident <strong>where it put the atoms</strong> &mdash;
+    nothing about whether a drug could bind there. She asked me not to pick targets, and I
+    didn&rsquo;t.</li>
   </ul>
 </section>
 
