@@ -20,7 +20,7 @@ The supplied protein is canonical wild-type human p53/TP53, UniProt **P04637**, 
 
 The confidence companion is `data/p53_alphafold_pae.json`. It is not a per-residue confidence file. Its top-level container holds `predicted_aligned_error`, a **393 × 393** pairwise matrix, and `max_predicted_aligned_error`; its units are **Ångströms**. PAE is appropriate for relative placement of parts, not for this local residue screen. The app’s **PAE not used for this claim** note records why it was refused.
 
-The model contains protein coordinates only. It contains no DNA, ligand, MDM2, ubiquitin, SUMO, or second p53 chain. It cannot establish a partner-bound complex, a tetramer interface, or a modified-state structure.
+The model contains protein coordinates only. It contains no DNA, ligand, MDM2, ubiquitin, SUMO, or second p53 chain. It cannot establish a partner-bound complex, a tetramer interface, or a modified-state structure. The course fold service was never needed: the supplied sequence, mmCIF, and confidence files were sufficient for this screen.
 
 ## 3. The right confidence, stated plainly, before the answer
 
@@ -38,11 +38,11 @@ There is no sequence mismatch to explain or invalidate the residue numbering. Th
 
 ## 5. The trap and the honest truth
 
-The biggest risk is sending the chemist a numerically correct-looking list that is biologically misread as a set of bad residues throughout the folded DNA-binding core.
+The biggest risk is not that the chemist misreads the list. It is that the owner’s operational range **94–312 overruns the confidently folded DNA-binding core**. The screen then rediscovers that boundary: it calls the low-confidence transition/linker tail a set of poor residues, rather than revealing twenty independent problems inside the fold.
 
-I tested the owner’s assumption about the numerical companion file by opening its schema. It contains pairwise PAE, not one value per residue. I then used the explicitly defined, one-value-per-residue local pLDDT field in the CIF, verified its contiguous 1–393 mapping, and checked it against the sequence.
+I tested the owner’s assumption about the numerical companion file by opening its schema. It contains pairwise PAE, not one value per residue. Her description of the companion file was wrong, and she needs to be told. Her own rule says that a schema gap or unsupported field must be reported back to her rather than replaced with an arbitrary column. The CIF supplied the permitted fallback: an explicitly defined local pLDDT field with one contiguous value per residue, verified against the sequence.
 
-The honest answer is that the shortlist is dominated by the boundary of the owner’s own operational range. Of the **22** residues below 70.00, **20** are the continuous block **293–312**. The remaining two are isolated residues **183** and **185**. The 293–312 region has mean pLDDT **46.63** and **100.00%** below 70.00; residues 94–292 have mean pLDDT **95.29**, with **1.01%** below 70.00. The app’s region cards and positional table make this visible without turning the boundary block into a clean target set.
+The honest answer to her direct location question is: the concentration is at **305–312**, not **94–100**. More precisely, the flagged boundary block is **293–312**, with all **20** residues below 70.00; **305–312** is its terminal eight-residue portion. The remaining two flags are isolated residues **183** and **185**. The 293–312 region has mean pLDDT **46.63** and **100.00%** below 70.00; residues 94–292 have mean pLDDT **95.29**, with **1.01%** below 70.00. The app’s region cards and positional table make the boundary effect visible.
 
 The threshold is not the whole story. Within 94–292, the counts are **0** below 65.00, **2** below 70.00, and **6** below 80.00. The app’s cutoff slider exposes this dependence. Residue **186** is exactly 70.00 and appears only when the slider moves above 70.00. This is why the result must be described as triage, not as a biological boundary.
 
@@ -62,9 +62,9 @@ The chemist can proceed with caution around the well-modelled core, but any desi
 
 ## 7. Caveats and next steps
 
-Biological caveat: pLDDT reports local placement confidence for the modeled, unmodified wild-type chain. It does not report whether real p53 carries a phosphorylation, acetylation, ubiquitin/SUMO conjugate, DNA, ligand, partner, or tetrameric assembly. The pLDDT dip around 183–187 co-locates with a UniProt Ser183 phosphorylation annotation, but the supplied files do not show that phosphorylation causes the dip.
+The one biological caveat to carry forward is the pLDDT dip around **183–187**. It co-locates with a UniProt Ser183 phosphorylation annotation, but the supplied files do not show that phosphorylation causes the dip. pLDDT reports local placement confidence for the modeled, unmodified wild-type chain; it does not establish the modification.
 
-With more time, I would validate the boundary and the two isolated core hits against experimental structures or solution data, test the relevant assembly and partner state, and examine the N-terminal 18–28 feature with MDM2-binding and structural/solution measurements. I would also confirm the exact construct and biological state required for the chemistry decision before calling any residue a target anchor.
+With more time, I would test this specific explanation using a modified-state structure or comparative structural/solution evidence before treating Ser183 or nearby residues as a mechanistically meaningful target feature.
 
 ## 8. AI use disclosure
 
