@@ -4,9 +4,14 @@ A small FastAPI + Tailwind/3Dmol.js viewer for the reproducible pLDDT screen. Th
 
 ## Run
 
+From a clean checkout:
+
 ```bash
 uv venv
+uv pip install -r requirements.txt
 uv run uvicorn app:app --host 127.0.0.1 --port 8000
 ```
+
+`uv run` uses the project environment, and the app reads `results/results.json` from disk at request time.
 
 Open <http://127.0.0.1:8000/>.
