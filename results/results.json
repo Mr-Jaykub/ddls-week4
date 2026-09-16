@@ -27,12 +27,14 @@
       "value": 70.0,
       "provenance": "fixed reproducible post-inspection threshold; not prospectively pre-declared",
       "external_basis": "AlphaFold Database pLDDT confidence band boundary: <50 very low, 50-<70 low, 70-<90 confident, >=90 very high",
-      "boundary_note": "70.0 is the boundary between low and confident; strict <70.0 flags only residues below the boundary, while exactly 70.0 is not flagged"
+      "boundary_note": "70.0 is the boundary between low and confident; strict <70.0 flags only residues below the boundary, while exactly 70.0 is not flagged",
+      "interpretation": "caution/triage list, not an automatic exclusion list"
     }
   },
   "summary": {
     "core_residues_screened": 219,
     "passing_count": 22,
+    "list_type": "caution/triage list, not an automatic exclusion list",
     "very_low_count": 17,
     "low_count": 5,
     "ties": [],
@@ -302,6 +304,7 @@
   "limitations": [
     "pLDDT supports local residue placement, not modifications, binding, partner interactions, or assembly state.",
     "The model is a monomer and contains no DNA, ligand, partner, or tetramer.",
-    "The 293-312 cluster is an edge/linker confidence pattern, not a clean target set."
+    "The 293-312 cluster is an edge/linker confidence pattern, not a clean target set.",
+    "The 183-187 pLDDT dip co-locates with a UniProt Ser183 phosphorylation annotation, but the supplied files do not show that phosphorylation causes the dip."
   ]
 }
