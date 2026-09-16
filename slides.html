@@ -54,6 +54,11 @@ strong{color:#fff;font-weight:650}
   font-weight:700;margin-bottom:.75rem}
 .two h3.term span{color:var(--dim);font-weight:400}
 .ask{color:var(--trust);font-size:1.05rem;margin-bottom:.7rem}
+.askbox{margin-top:1.8rem;max-width:56ch;border-left:3px solid var(--trust);
+  padding:.2rem 0 .2rem 1.4rem}
+.askbox-h{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--trust);
+  font-weight:600;margin-bottom:.8rem}
+.askbox p{font-size:1.05rem;line-height:1.6;color:#ded9cc}
 .two li,.two p{font-size:.98rem}
 .bar{position:fixed;left:0;bottom:0;height:3px;background:var(--trust);transition:width .28s ease;z-index:10}
 .count{position:fixed;right:2.2vw;bottom:2.4vh;font-size:.78rem;color:var(--dim);
@@ -66,11 +71,17 @@ strong{color:#fff;font-weight:650}
 <section class="slide">
   <div class="kicker">Module 4 &middot; Jakub Palacka</div>
   <h1>Can you trust<br>a <em>predicted</em> shape?</h1>
-  <p class="lead">A cancer researcher has an AI-predicted 3D model of p53 &mdash; a protein that
-  goes wrong in roughly half of all human tumours. She wants to hand a chemist a list of exact
-  positions to design a drug against.</p>
-  <p class="lead" style="margin-top:1.3rem"><strong>Her question:</strong> which positions in the
-  folded part are too unreliable to build on?</p>
+  <p class="lead" style="max-width:58ch">A cancer researcher has an AI-predicted 3D model of p53
+  &mdash; a protein that goes wrong in roughly half of all human tumours. A chemist is about to
+  design a drug against specific positions on it, and she has to say which ones are safe to aim at.</p>
+  <div class="askbox">
+    <div class="askbox-h">What she asked me for</div>
+    <p>Go through positions <strong>94&ndash;312</strong> &mdash; the folded core. Flag every one
+    the model is <strong>not confident</strong> about. Rank them worst first, using one rule fixed
+    in advance.</p>
+    <p style="margin-top:.7rem">Not a list to avoid &mdash; a <strong>caution list</strong>:
+    &ldquo;check these before you build on them.&rdquo;</p>
+  </div>
 </section>
 
 <section class="slide">
@@ -151,6 +162,34 @@ strong{color:#fff;font-weight:650}
       </div>
     </div>
   </div>
+</section>
+
+<section class="slide">
+  <div class="kicker">The delivery</div>
+  <h1>What I<br>sent back</h1>
+  <div class="two" style="margin-top:0">
+    <div>
+      <h3 class="term">The list she asked for</h3>
+      <p><strong>22 positions</strong> ranked worst first, each labelled
+      <span style="color:var(--danger)">don&rsquo;t rely on it</span> or
+      <span style="color:var(--amber)">treat with caution</span>, with the rule printed on it so
+      the chemist can re-apply it without asking us.</p>
+    </div>
+    <div>
+      <h3 class="term">Two things she didn&rsquo;t ask for</h3>
+      <p>Her range runs <strong>20 positions past</strong> the fold &mdash; so most of the list is
+      her boundary, not a defect. And the file she pointed me at <strong>cannot</strong> answer her
+      question.</p>
+    </div>
+  </div>
+  <ul style="margin-top:1.6rem;max-width:62ch">
+    <li>The headline is <strong>good news</strong>: inside the real fold, only
+    <strong>1.01%</strong> of positions were flagged &mdash; and both sit on the line.
+    The core is a <strong>green light</strong>.</li>
+    <li class="warn">So the honest answer is nearly the opposite of what she expected. She asked
+    which parts were bad; the useful finding is that <strong>almost none of them are</strong>
+    &mdash; and that her range was drawn too wide.</li>
+  </ul>
 </section>
 
 <section class="slide">
