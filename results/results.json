@@ -383,6 +383,15 @@
       },
       "statement": "UniProt annotates a structural Zn2+ site at 176/179/238/242. The model represents no zinc, yet scores those four residues at 94-97. High pLDDT reflects agreement with the model's own prediction, not completeness of the biological assembly.",
       "overreach_guard": "Co-location of the missing cofactor with the 182-187 dip is an observation only. No causal link is demonstrated or claimed."
-    }
+    },
+    "supporting_ptm_finding": {
+      "source": "https://rest.uniprot.org/uniprotkb/P04637 (Modified residue annotations, fetched live)",
+      "annotation": "Residue 183: Phosphoserine; by AURKB",
+      "modelled_state": "unmodified serine; no phosphate group, no AURKB, no modified-state model",
+      "found_by": "Pi (agent B), independently; verified against UniProt by hand",
+      "statement": "UniProt annotates Ser183 as a phosphorylation site. The model represents the unmodified residue only.",
+      "why_it_does_not_explain_the_dip": "The dip spans ~182-187 and its minimum is residue 185 (68.44), which carries no modification annotation, not residue 183 (68.81) which does. A PTM-driven explanation would predict the minimum at 183. It is not. So the annotation is co-located in sequence but is not supported as an explanation by the model's own values - a stronger statement than absence of evidence."
+    },
+    "primary_caveat_for_report": "zinc: it is a structural cofactor the DBD fold depends on, and it bounds the headline conclusion that 94-292 is uniformly well-modelled. The PTM finding is supporting detail for the 183/185 discussion."
   }
 }
