@@ -50,6 +50,9 @@ strong{color:#fff;font-weight:650}
 .two h3{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);
   font-weight:600;margin-bottom:.9rem}
 .two p{font-size:1rem;line-height:1.6;color:#ded9cc}
+.expand{display:block;font-size:.82rem;color:var(--dim);font-style:italic;margin-bottom:.4rem}
+.ask{color:var(--trust);font-size:1.05rem;margin-bottom:.7rem}
+.two li,.two p{font-size:.98rem}
 .bar{position:fixed;left:0;bottom:0;height:3px;background:var(--trust);transition:width .28s ease;z-index:10}
 .count{position:fixed;right:2.2vw;bottom:2.4vh;font-size:.78rem;color:var(--dim);
   font-variant-numeric:tabular-nums;z-index:10}
@@ -71,23 +74,29 @@ strong{color:#fff;font-weight:650}
 <section class="slide">
   <div class="kicker">Two kinds of confidence</div>
   <h1>Which number<br>answers it?</h1>
-  <div class="two">
+  <p class="lead" style="max-width:64ch;margin-bottom:0">The AI marks its own work &mdash; and
+  hands back two different confidence scores.</p>
+  <div class="two" style="margin-top:1.4rem">
     <div>
-      <h3>pLDDT &mdash; one per position</h3>
-      <p>&ldquo;Is <em>this</em> bit in the right place?&rdquo;<br>
-      Scored 0&ndash;100. Higher is better.</p>
+      <h3>pLDDT &mdash; one score per position</h3>
+      <p class="ask">&ldquo;Is <em>this</em> bit in the right place?&rdquo;</p>
+      <p><span class="expand">predicted Local Distance Difference Test</span>
+      Scored <strong>0&ndash;100</strong>, higher is better. Below about <strong>70</strong> the
+      model is telling you not to rely on it.</p>
     </div>
     <div>
-      <h3>PAE &mdash; one per pair</h3>
-      <p>&ldquo;Are <em>these two</em> bits in the right place relative to each other?&rdquo;</p>
+      <h3>PAE &mdash; one score per pair</h3>
+      <p class="ask">&ldquo;Are <em>these two</em> bits right relative to each other?&rdquo;</p>
+      <p><span class="expand">Predicted Aligned Error</span>
+      An expected error in &aring;ngstr&ouml;m &mdash; a distance, so <strong>smaller is
+      better</strong>.</p>
     </div>
   </div>
-  <ul style="margin-top:2.2rem">
-    <li>Her question is about single positions &mdash; so <strong>pLDDT</strong> is the right one.</li>
+  <ul style="margin-top:1.5rem">
+    <li>Her question is about single positions, so <strong>pLDDT</strong> answers it.</li>
     <li class="warn">The file she pointed me to held <strong>only PAE</strong>. The per-position
     scores were inside the model file all along.</li>
-    <li>Checked it is really her protein: sequence matches exactly, <strong>393 positions</strong>,
-    no mutations.</li>
+    <li>It is her protein: sequence matches exactly, <strong>393 positions</strong>, no mutations.</li>
   </ul>
 </section>
 
@@ -149,9 +158,10 @@ strong{color:#fff;font-weight:650}
   <h1>Who did what</h1>
   <div class="two">
     <div><h3>Pi &mdash; the analyst</h3>
-      <p>Wrote the spec, the analysis script, the results file and the viewer. Found a
-      modification noted at position 183 on its own &mdash; and correctly refused to claim it
-      explained anything.</p></div>
+      <p>Wrote the spec, the analysis script, the results file and the viewer. On its own it
+      found that position 183 is known to carry a <strong>chemical tag</strong> the cell adds
+      after the protein is built &mdash; and correctly refused to claim that explained the dip
+      in confidence there.</p></div>
     <div><h3>Claude &mdash; independent review</h3>
       <p>Found that the companion file had no per-position scores at all. Suggested areas to probe
       and drafted possible questions for my second interview round. Recomputed the screen
@@ -169,9 +179,10 @@ strong{color:#fff;font-weight:650}
   <div class="kicker">Limits &amp; next step</div>
   <h1>What this<br>cannot tell you</h1>
   <ul style="margin-top:0">
-    <li class="warn">A confidence score says nothing about chemical <strong>modifications</strong>,
-    binding <strong>partners</strong>, or the fact that real p53 works as a <strong>group of
-    four</strong> &mdash; this model is a single copy.</li>
+    <li class="warn">A confidence score only says <em>where the model put an atom</em>. It says
+    nothing about the <strong>chemical tags</strong> the cell adds, the <strong>other molecules</strong>
+    p53 grips onto, or the fact that real p53 works as a <strong>group of four</strong> &mdash;
+    this model is a single copy on its own.</li>
     <li>I also never checked her 94&ndash;312 range against a source &mdash; and the whole finding
     is about <strong>where that range ends</strong>.</li>
   </ul>
