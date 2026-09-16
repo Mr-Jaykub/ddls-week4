@@ -1,31 +1,12 @@
-# DDLS Module 4 — structure + confidence viewer
+# p53 confidence screen
 
-Computer Lab 4: interview a structural-biology data owner, direct an analyst to trust
-(or refuse to trust) an AlphaFold model.
+A small FastAPI + Tailwind/3Dmol.js viewer for the reproducible pLDDT screen. The app reads `results/results.json` on every request and serves the supplied mmCIF without a database.
 
 ## Run
 
 ```bash
 uv venv
-uv run uvicorn app:app --reload --port 8000
+uv run uvicorn app:app --host 127.0.0.1 --port 8000
 ```
 
-Open http://127.0.0.1:8000/.
-
-## Layout
-
-- `data/` — data bundle from the course portal (FASTA, structure, confidence)
-- `results/` — analysis outputs the app reads (results.json, structure, PAE)
-- `spec.md` — the protein, the exact claim, the matching confidence, the structure check
-- `AGENTS.md` — brief for the analysis agent
-- `report.md` — structured write-up
-
-## Lab session start
-
-```bash
-cd ~/ddls-week4
-set -a; source .env; set +a
-pi --provider ddls --model gpt-5.6-luna
-```
-
-Repo: https://github.com/Mr-Jaykub/ddls-week4
+Open <http://127.0.0.1:8000/>.
