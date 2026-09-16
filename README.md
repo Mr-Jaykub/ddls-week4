@@ -19,3 +19,13 @@ Open http://127.0.0.1:8000/.
 - `spec.md` — the protein, the exact claim, the matching confidence, the structure check
 - `AGENTS.md` — brief for the analysis agent
 - `report.md` — structured write-up
+
+## Lab session start
+
+```bash
+cd ~/ddls-week4
+set -a; source .env; set +a
+pi --provider ddls --model gpt-5.6-luna
+```
+
+Repo: https://github.com/Mr-Jaykub/ddls-week4
