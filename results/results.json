@@ -84,6 +84,1103 @@
       "below_70_percent": 100.0
     }
   },
+  "per_residue_plddt_94_312": [
+    {
+      "residue": 94,
+      "amino_acid": "S",
+      "plddt": 75.81
+    },
+    {
+      "residue": 95,
+      "amino_acid": "S",
+      "plddt": 87.19
+    },
+    {
+      "residue": 96,
+      "amino_acid": "S",
+      "plddt": 91.94
+    },
+    {
+      "residue": 97,
+      "amino_acid": "V",
+      "plddt": 94.0
+    },
+    {
+      "residue": 98,
+      "amino_acid": "P",
+      "plddt": 95.25
+    },
+    {
+      "residue": 99,
+      "amino_acid": "S",
+      "plddt": 95.62
+    },
+    {
+      "residue": 100,
+      "amino_acid": "Q",
+      "plddt": 94.5
+    },
+    {
+      "residue": 101,
+      "amino_acid": "K",
+      "plddt": 96.19
+    },
+    {
+      "residue": 102,
+      "amino_acid": "T",
+      "plddt": 97.5
+    },
+    {
+      "residue": 103,
+      "amino_acid": "Y",
+      "plddt": 98.12
+    },
+    {
+      "residue": 104,
+      "amino_acid": "Q",
+      "plddt": 97.69
+    },
+    {
+      "residue": 105,
+      "amino_acid": "G",
+      "plddt": 96.69
+    },
+    {
+      "residue": 106,
+      "amino_acid": "S",
+      "plddt": 97.12
+    },
+    {
+      "residue": 107,
+      "amino_acid": "Y",
+      "plddt": 97.56
+    },
+    {
+      "residue": 108,
+      "amino_acid": "G",
+      "plddt": 97.25
+    },
+    {
+      "residue": 109,
+      "amino_acid": "F",
+      "plddt": 98.25
+    },
+    {
+      "residue": 110,
+      "amino_acid": "R",
+      "plddt": 97.81
+    },
+    {
+      "residue": 111,
+      "amino_acid": "L",
+      "plddt": 98.19
+    },
+    {
+      "residue": 112,
+      "amino_acid": "G",
+      "plddt": 96.88
+    },
+    {
+      "residue": 113,
+      "amino_acid": "F",
+      "plddt": 97.5
+    },
+    {
+      "residue": 114,
+      "amino_acid": "L",
+      "plddt": 93.88
+    },
+    {
+      "residue": 115,
+      "amino_acid": "H",
+      "plddt": 88.88
+    },
+    {
+      "residue": 116,
+      "amino_acid": "S",
+      "plddt": 90.06
+    },
+    {
+      "residue": 117,
+      "amino_acid": "G",
+      "plddt": 90.94
+    },
+    {
+      "residue": 118,
+      "amino_acid": "T",
+      "plddt": 93.06
+    },
+    {
+      "residue": 119,
+      "amino_acid": "A",
+      "plddt": 93.44
+    },
+    {
+      "residue": 120,
+      "amino_acid": "K",
+      "plddt": 88.81
+    },
+    {
+      "residue": 121,
+      "amino_acid": "S",
+      "plddt": 92.69
+    },
+    {
+      "residue": 122,
+      "amino_acid": "V",
+      "plddt": 96.19
+    },
+    {
+      "residue": 123,
+      "amino_acid": "T",
+      "plddt": 97.19
+    },
+    {
+      "residue": 124,
+      "amino_acid": "C",
+      "plddt": 97.62
+    },
+    {
+      "residue": 125,
+      "amino_acid": "T",
+      "plddt": 98.06
+    },
+    {
+      "residue": 126,
+      "amino_acid": "Y",
+      "plddt": 98.19
+    },
+    {
+      "residue": 127,
+      "amino_acid": "S",
+      "plddt": 97.38
+    },
+    {
+      "residue": 128,
+      "amino_acid": "P",
+      "plddt": 95.94
+    },
+    {
+      "residue": 129,
+      "amino_acid": "A",
+      "plddt": 95.0
+    },
+    {
+      "residue": 130,
+      "amino_acid": "L",
+      "plddt": 96.25
+    },
+    {
+      "residue": 131,
+      "amino_acid": "N",
+      "plddt": 97.44
+    },
+    {
+      "residue": 132,
+      "amino_acid": "K",
+      "plddt": 98.25
+    },
+    {
+      "residue": 133,
+      "amino_acid": "M",
+      "plddt": 98.44
+    },
+    {
+      "residue": 134,
+      "amino_acid": "F",
+      "plddt": 98.56
+    },
+    {
+      "residue": 135,
+      "amino_acid": "C",
+      "plddt": 98.31
+    },
+    {
+      "residue": 136,
+      "amino_acid": "Q",
+      "plddt": 98.12
+    },
+    {
+      "residue": 137,
+      "amino_acid": "L",
+      "plddt": 97.12
+    },
+    {
+      "residue": 138,
+      "amino_acid": "A",
+      "plddt": 95.75
+    },
+    {
+      "residue": 139,
+      "amino_acid": "K",
+      "plddt": 96.81
+    },
+    {
+      "residue": 140,
+      "amino_acid": "T",
+      "plddt": 97.19
+    },
+    {
+      "residue": 141,
+      "amino_acid": "C",
+      "plddt": 97.69
+    },
+    {
+      "residue": 142,
+      "amino_acid": "P",
+      "plddt": 97.5
+    },
+    {
+      "residue": 143,
+      "amino_acid": "V",
+      "plddt": 98.31
+    },
+    {
+      "residue": 144,
+      "amino_acid": "Q",
+      "plddt": 97.88
+    },
+    {
+      "residue": 145,
+      "amino_acid": "L",
+      "plddt": 98.12
+    },
+    {
+      "residue": 146,
+      "amino_acid": "W",
+      "plddt": 98.12
+    },
+    {
+      "residue": 147,
+      "amino_acid": "V",
+      "plddt": 97.88
+    },
+    {
+      "residue": 148,
+      "amino_acid": "D",
+      "plddt": 97.0
+    },
+    {
+      "residue": 149,
+      "amino_acid": "S",
+      "plddt": 96.19
+    },
+    {
+      "residue": 150,
+      "amino_acid": "T",
+      "plddt": 96.31
+    },
+    {
+      "residue": 151,
+      "amino_acid": "P",
+      "plddt": 97.19
+    },
+    {
+      "residue": 152,
+      "amino_acid": "P",
+      "plddt": 96.88
+    },
+    {
+      "residue": 153,
+      "amino_acid": "P",
+      "plddt": 96.69
+    },
+    {
+      "residue": 154,
+      "amino_acid": "G",
+      "plddt": 96.88
+    },
+    {
+      "residue": 155,
+      "amino_acid": "T",
+      "plddt": 98.38
+    },
+    {
+      "residue": 156,
+      "amino_acid": "R",
+      "plddt": 98.25
+    },
+    {
+      "residue": 157,
+      "amino_acid": "V",
+      "plddt": 98.56
+    },
+    {
+      "residue": 158,
+      "amino_acid": "R",
+      "plddt": 98.56
+    },
+    {
+      "residue": 159,
+      "amino_acid": "A",
+      "plddt": 98.62
+    },
+    {
+      "residue": 160,
+      "amino_acid": "M",
+      "plddt": 98.38
+    },
+    {
+      "residue": 161,
+      "amino_acid": "A",
+      "plddt": 98.31
+    },
+    {
+      "residue": 162,
+      "amino_acid": "I",
+      "plddt": 98.0
+    },
+    {
+      "residue": 163,
+      "amino_acid": "Y",
+      "plddt": 98.31
+    },
+    {
+      "residue": 164,
+      "amino_acid": "K",
+      "plddt": 97.56
+    },
+    {
+      "residue": 165,
+      "amino_acid": "Q",
+      "plddt": 95.25
+    },
+    {
+      "residue": 166,
+      "amino_acid": "S",
+      "plddt": 94.25
+    },
+    {
+      "residue": 167,
+      "amino_acid": "Q",
+      "plddt": 94.69
+    },
+    {
+      "residue": 168,
+      "amino_acid": "H",
+      "plddt": 94.69
+    },
+    {
+      "residue": 169,
+      "amino_acid": "M",
+      "plddt": 94.69
+    },
+    {
+      "residue": 170,
+      "amino_acid": "T",
+      "plddt": 95.25
+    },
+    {
+      "residue": 171,
+      "amino_acid": "E",
+      "plddt": 95.69
+    },
+    {
+      "residue": 172,
+      "amino_acid": "V",
+      "plddt": 96.31
+    },
+    {
+      "residue": 173,
+      "amino_acid": "V",
+      "plddt": 97.12
+    },
+    {
+      "residue": 174,
+      "amino_acid": "R",
+      "plddt": 95.12
+    },
+    {
+      "residue": 175,
+      "amino_acid": "R",
+      "plddt": 96.62
+    },
+    {
+      "residue": 176,
+      "amino_acid": "C",
+      "plddt": 96.5
+    },
+    {
+      "residue": 177,
+      "amino_acid": "P",
+      "plddt": 95.19
+    },
+    {
+      "residue": 178,
+      "amino_acid": "H",
+      "plddt": 94.88
+    },
+    {
+      "residue": 179,
+      "amino_acid": "H",
+      "plddt": 94.25
+    },
+    {
+      "residue": 180,
+      "amino_acid": "E",
+      "plddt": 93.31
+    },
+    {
+      "residue": 181,
+      "amino_acid": "R",
+      "plddt": 91.62
+    },
+    {
+      "residue": 182,
+      "amino_acid": "C",
+      "plddt": 84.06
+    },
+    {
+      "residue": 183,
+      "amino_acid": "S",
+      "plddt": 68.81
+    },
+    {
+      "residue": 184,
+      "amino_acid": "D",
+      "plddt": 70.25
+    },
+    {
+      "residue": 185,
+      "amino_acid": "S",
+      "plddt": 68.44
+    },
+    {
+      "residue": 186,
+      "amino_acid": "D",
+      "plddt": 70.0
+    },
+    {
+      "residue": 187,
+      "amino_acid": "G",
+      "plddt": 76.19
+    },
+    {
+      "residue": 188,
+      "amino_acid": "L",
+      "plddt": 82.12
+    },
+    {
+      "residue": 189,
+      "amino_acid": "A",
+      "plddt": 90.94
+    },
+    {
+      "residue": 190,
+      "amino_acid": "P",
+      "plddt": 92.94
+    },
+    {
+      "residue": 191,
+      "amino_acid": "P",
+      "plddt": 93.62
+    },
+    {
+      "residue": 192,
+      "amino_acid": "Q",
+      "plddt": 93.69
+    },
+    {
+      "residue": 193,
+      "amino_acid": "H",
+      "plddt": 96.0
+    },
+    {
+      "residue": 194,
+      "amino_acid": "L",
+      "plddt": 97.31
+    },
+    {
+      "residue": 195,
+      "amino_acid": "I",
+      "plddt": 97.81
+    },
+    {
+      "residue": 196,
+      "amino_acid": "R",
+      "plddt": 96.69
+    },
+    {
+      "residue": 197,
+      "amino_acid": "V",
+      "plddt": 96.75
+    },
+    {
+      "residue": 198,
+      "amino_acid": "E",
+      "plddt": 93.0
+    },
+    {
+      "residue": 199,
+      "amino_acid": "G",
+      "plddt": 90.0
+    },
+    {
+      "residue": 200,
+      "amino_acid": "N",
+      "plddt": 90.19
+    },
+    {
+      "residue": 201,
+      "amino_acid": "L",
+      "plddt": 91.56
+    },
+    {
+      "residue": 202,
+      "amino_acid": "R",
+      "plddt": 94.94
+    },
+    {
+      "residue": 203,
+      "amino_acid": "V",
+      "plddt": 96.0
+    },
+    {
+      "residue": 204,
+      "amino_acid": "E",
+      "plddt": 96.25
+    },
+    {
+      "residue": 205,
+      "amino_acid": "Y",
+      "plddt": 96.81
+    },
+    {
+      "residue": 206,
+      "amino_acid": "L",
+      "plddt": 95.88
+    },
+    {
+      "residue": 207,
+      "amino_acid": "D",
+      "plddt": 95.12
+    },
+    {
+      "residue": 208,
+      "amino_acid": "D",
+      "plddt": 94.0
+    },
+    {
+      "residue": 209,
+      "amino_acid": "R",
+      "plddt": 91.56
+    },
+    {
+      "residue": 210,
+      "amino_acid": "N",
+      "plddt": 91.56
+    },
+    {
+      "residue": 211,
+      "amino_acid": "T",
+      "plddt": 93.19
+    },
+    {
+      "residue": 212,
+      "amino_acid": "F",
+      "plddt": 94.38
+    },
+    {
+      "residue": 213,
+      "amino_acid": "R",
+      "plddt": 96.38
+    },
+    {
+      "residue": 214,
+      "amino_acid": "H",
+      "plddt": 97.19
+    },
+    {
+      "residue": 215,
+      "amino_acid": "S",
+      "plddt": 97.88
+    },
+    {
+      "residue": 216,
+      "amino_acid": "V",
+      "plddt": 97.81
+    },
+    {
+      "residue": 217,
+      "amino_acid": "V",
+      "plddt": 97.94
+    },
+    {
+      "residue": 218,
+      "amino_acid": "V",
+      "plddt": 97.88
+    },
+    {
+      "residue": 219,
+      "amino_acid": "P",
+      "plddt": 97.88
+    },
+    {
+      "residue": 220,
+      "amino_acid": "Y",
+      "plddt": 97.69
+    },
+    {
+      "residue": 221,
+      "amino_acid": "E",
+      "plddt": 96.31
+    },
+    {
+      "residue": 222,
+      "amino_acid": "P",
+      "plddt": 95.88
+    },
+    {
+      "residue": 223,
+      "amino_acid": "P",
+      "plddt": 96.19
+    },
+    {
+      "residue": 224,
+      "amino_acid": "E",
+      "plddt": 95.19
+    },
+    {
+      "residue": 225,
+      "amino_acid": "V",
+      "plddt": 95.31
+    },
+    {
+      "residue": 226,
+      "amino_acid": "G",
+      "plddt": 94.5
+    },
+    {
+      "residue": 227,
+      "amino_acid": "S",
+      "plddt": 94.62
+    },
+    {
+      "residue": 228,
+      "amino_acid": "D",
+      "plddt": 93.94
+    },
+    {
+      "residue": 229,
+      "amino_acid": "C",
+      "plddt": 95.38
+    },
+    {
+      "residue": 230,
+      "amino_acid": "T",
+      "plddt": 96.88
+    },
+    {
+      "residue": 231,
+      "amino_acid": "T",
+      "plddt": 97.25
+    },
+    {
+      "residue": 232,
+      "amino_acid": "I",
+      "plddt": 97.94
+    },
+    {
+      "residue": 233,
+      "amino_acid": "H",
+      "plddt": 97.56
+    },
+    {
+      "residue": 234,
+      "amino_acid": "Y",
+      "plddt": 98.12
+    },
+    {
+      "residue": 235,
+      "amino_acid": "N",
+      "plddt": 97.19
+    },
+    {
+      "residue": 236,
+      "amino_acid": "Y",
+      "plddt": 98.0
+    },
+    {
+      "residue": 237,
+      "amino_acid": "M",
+      "plddt": 96.88
+    },
+    {
+      "residue": 238,
+      "amino_acid": "C",
+      "plddt": 97.25
+    },
+    {
+      "residue": 239,
+      "amino_acid": "N",
+      "plddt": 98.19
+    },
+    {
+      "residue": 240,
+      "amino_acid": "S",
+      "plddt": 98.25
+    },
+    {
+      "residue": 241,
+      "amino_acid": "S",
+      "plddt": 97.81
+    },
+    {
+      "residue": 242,
+      "amino_acid": "C",
+      "plddt": 97.44
+    },
+    {
+      "residue": 243,
+      "amino_acid": "M",
+      "plddt": 96.62
+    },
+    {
+      "residue": 244,
+      "amino_acid": "G",
+      "plddt": 93.75
+    },
+    {
+      "residue": 245,
+      "amino_acid": "G",
+      "plddt": 94.81
+    },
+    {
+      "residue": 246,
+      "amino_acid": "M",
+      "plddt": 97.12
+    },
+    {
+      "residue": 247,
+      "amino_acid": "N",
+      "plddt": 97.5
+    },
+    {
+      "residue": 248,
+      "amino_acid": "R",
+      "plddt": 97.25
+    },
+    {
+      "residue": 249,
+      "amino_acid": "R",
+      "plddt": 97.81
+    },
+    {
+      "residue": 250,
+      "amino_acid": "P",
+      "plddt": 98.06
+    },
+    {
+      "residue": 251,
+      "amino_acid": "I",
+      "plddt": 98.56
+    },
+    {
+      "residue": 252,
+      "amino_acid": "L",
+      "plddt": 98.44
+    },
+    {
+      "residue": 253,
+      "amino_acid": "T",
+      "plddt": 98.62
+    },
+    {
+      "residue": 254,
+      "amino_acid": "I",
+      "plddt": 98.62
+    },
+    {
+      "residue": 255,
+      "amino_acid": "I",
+      "plddt": 98.69
+    },
+    {
+      "residue": 256,
+      "amino_acid": "T",
+      "plddt": 98.69
+    },
+    {
+      "residue": 257,
+      "amino_acid": "L",
+      "plddt": 98.56
+    },
+    {
+      "residue": 258,
+      "amino_acid": "E",
+      "plddt": 98.5
+    },
+    {
+      "residue": 259,
+      "amino_acid": "D",
+      "plddt": 97.44
+    },
+    {
+      "residue": 260,
+      "amino_acid": "S",
+      "plddt": 96.38
+    },
+    {
+      "residue": 261,
+      "amino_acid": "S",
+      "plddt": 96.31
+    },
+    {
+      "residue": 262,
+      "amino_acid": "G",
+      "plddt": 94.56
+    },
+    {
+      "residue": 263,
+      "amino_acid": "N",
+      "plddt": 96.94
+    },
+    {
+      "residue": 264,
+      "amino_acid": "L",
+      "plddt": 98.0
+    },
+    {
+      "residue": 265,
+      "amino_acid": "L",
+      "plddt": 98.31
+    },
+    {
+      "residue": 266,
+      "amino_acid": "G",
+      "plddt": 98.19
+    },
+    {
+      "residue": 267,
+      "amino_acid": "R",
+      "plddt": 98.62
+    },
+    {
+      "residue": 268,
+      "amino_acid": "N",
+      "plddt": 98.25
+    },
+    {
+      "residue": 269,
+      "amino_acid": "S",
+      "plddt": 98.19
+    },
+    {
+      "residue": 270,
+      "amino_acid": "F",
+      "plddt": 98.5
+    },
+    {
+      "residue": 271,
+      "amino_acid": "E",
+      "plddt": 98.5
+    },
+    {
+      "residue": 272,
+      "amino_acid": "V",
+      "plddt": 98.69
+    },
+    {
+      "residue": 273,
+      "amino_acid": "R",
+      "plddt": 98.56
+    },
+    {
+      "residue": 274,
+      "amino_acid": "V",
+      "plddt": 98.69
+    },
+    {
+      "residue": 275,
+      "amino_acid": "C",
+      "plddt": 98.12
+    },
+    {
+      "residue": 276,
+      "amino_acid": "A",
+      "plddt": 97.44
+    },
+    {
+      "residue": 277,
+      "amino_acid": "C",
+      "plddt": 97.12
+    },
+    {
+      "residue": 278,
+      "amino_acid": "P",
+      "plddt": 98.0
+    },
+    {
+      "residue": 279,
+      "amino_acid": "G",
+      "plddt": 97.31
+    },
+    {
+      "residue": 280,
+      "amino_acid": "R",
+      "plddt": 96.88
+    },
+    {
+      "residue": 281,
+      "amino_acid": "D",
+      "plddt": 97.31
+    },
+    {
+      "residue": 282,
+      "amino_acid": "R",
+      "plddt": 97.5
+    },
+    {
+      "residue": 283,
+      "amino_acid": "R",
+      "plddt": 96.38
+    },
+    {
+      "residue": 284,
+      "amino_acid": "T",
+      "plddt": 96.25
+    },
+    {
+      "residue": 285,
+      "amino_acid": "E",
+      "plddt": 96.62
+    },
+    {
+      "residue": 286,
+      "amino_acid": "E",
+      "plddt": 96.12
+    },
+    {
+      "residue": 287,
+      "amino_acid": "E",
+      "plddt": 95.25
+    },
+    {
+      "residue": 288,
+      "amino_acid": "N",
+      "plddt": 93.69
+    },
+    {
+      "residue": 289,
+      "amino_acid": "L",
+      "plddt": 92.12
+    },
+    {
+      "residue": 290,
+      "amino_acid": "R",
+      "plddt": 91.38
+    },
+    {
+      "residue": 291,
+      "amino_acid": "K",
+      "plddt": 89.19
+    },
+    {
+      "residue": 292,
+      "amino_acid": "K",
+      "plddt": 81.5
+    },
+    {
+      "residue": 293,
+      "amino_acid": "G",
+      "plddt": 67.06
+    },
+    {
+      "residue": 294,
+      "amino_acid": "E",
+      "plddt": 56.25
+    },
+    {
+      "residue": 295,
+      "amino_acid": "P",
+      "plddt": 44.16
+    },
+    {
+      "residue": 296,
+      "amino_acid": "H",
+      "plddt": 49.81
+    },
+    {
+      "residue": 297,
+      "amino_acid": "H",
+      "plddt": 47.94
+    },
+    {
+      "residue": 298,
+      "amino_acid": "E",
+      "plddt": 39.03
+    },
+    {
+      "residue": 299,
+      "amino_acid": "L",
+      "plddt": 47.84
+    },
+    {
+      "residue": 300,
+      "amino_acid": "P",
+      "plddt": 44.44
+    },
+    {
+      "residue": 301,
+      "amino_acid": "P",
+      "plddt": 49.06
+    },
+    {
+      "residue": 302,
+      "amino_acid": "G",
+      "plddt": 41.88
+    },
+    {
+      "residue": 303,
+      "amino_acid": "S",
+      "plddt": 42.88
+    },
+    {
+      "residue": 304,
+      "amino_acid": "T",
+      "plddt": 45.09
+    },
+    {
+      "residue": 305,
+      "amino_acid": "K",
+      "plddt": 47.53
+    },
+    {
+      "residue": 306,
+      "amino_acid": "R",
+      "plddt": 41.47
+    },
+    {
+      "residue": 307,
+      "amino_acid": "A",
+      "plddt": 42.34
+    },
+    {
+      "residue": 308,
+      "amino_acid": "L",
+      "plddt": 51.88
+    },
+    {
+      "residue": 309,
+      "amino_acid": "P",
+      "plddt": 41.66
+    },
+    {
+      "residue": 310,
+      "amino_acid": "N",
+      "plddt": 47.09
+    },
+    {
+      "residue": 311,
+      "amino_acid": "N",
+      "plddt": 39.53
+    },
+    {
+      "residue": 312,
+      "amino_acid": "T",
+      "plddt": 45.59
+    }
+  ],
   "pLDDT_180_190": [
     {
       "residue": 180,

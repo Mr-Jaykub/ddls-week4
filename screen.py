@@ -188,6 +188,10 @@ def main() -> None:
             },
             "293-312": region(293, 312),
         },
+        "per_residue_plddt_94_312": [
+            {"residue": i, "amino_acid": sequence[i - 1], "plddt": round(plddt[i], 2)}
+            for i in range(94, 313)
+        ],
         "pLDDT_180_190": [
             {"residue": i, "amino_acid": sequence[i - 1], "plddt": round(plddt[i], 2)}
             for i in range(180, 191)
