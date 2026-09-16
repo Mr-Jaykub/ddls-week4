@@ -6,6 +6,7 @@
 - Run all Python commands with `uv run`; this is the cross-platform command convention.
 - The supplied data lives in `data/`; write analysis outputs only to `results/`.
 - Before making a big change, commit the current state. Commit again whenever something starts working. Use short, clear commit messages.
+- Never commit `.env` or any secret. `.env` is local-only and must remain ignored; before every commit, run `git status` and verify that `.env` is not staged. If it is tracked or staged, untrack it with `git rm --cached .env` (without deleting the local file), confirm `.gitignore` contains `.env`, and do not commit until the working tree is safe.
 
 ## Data loading and confidence
 
