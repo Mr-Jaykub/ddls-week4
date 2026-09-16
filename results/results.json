@@ -25,7 +25,9 @@
     "cutoff": {
       "operator": "<",
       "value": 70.0,
-      "provenance": "fixed reproducible post-inspection threshold; not prospectively pre-declared"
+      "provenance": "fixed reproducible post-inspection threshold; not prospectively pre-declared",
+      "external_basis": "AlphaFold Database pLDDT confidence band boundary: <50 very low, 50-<70 low, 70-<90 confident, >=90 very high",
+      "boundary_note": "70.0 is the boundary between low and confident; strict <70.0 flags only residues below the boundary, while exactly 70.0 is not flagged"
     }
   },
   "summary": {
