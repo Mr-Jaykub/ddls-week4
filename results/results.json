@@ -1,0 +1,388 @@
+{
+  "field_provenance": {
+    "field": "_ma_qa_metric_local.metric_value (metric id 2, 'local pLDDT')",
+    "source_file": "data/p53_alphafold_model.cif",
+    "units": "unitless, 0-100 scale",
+    "direction": "higher = better local confidence; rank smallest first",
+    "validation": {
+      "rows": 393,
+      "residues_in_model": 393,
+      "seq_ids_contiguous_1_393": true,
+      "agrees_with_b_factor_column": true,
+      "nulls": 0,
+      "out_of_range": 0
+    },
+    "not_used": {
+      "file": "data/p53_alphafold_pae.json",
+      "top_level_keys": [
+        "max_predicted_aligned_error",
+        "predicted_aligned_error"
+      ],
+      "shape": [
+        393,
+        393
+      ],
+      "units": "Angstrom",
+      "reason": "pairwise predicted aligned error, not a per-residue confidence field; contains no residue-level array. The owner's belief that residue-level values are in this file is incorrect."
+    }
+  },
+  "structure_check": {
+    "model_sequence_equals_fasta": true,
+    "model_sequence_equals_uniprot_P04637": true,
+    "length": 393,
+    "chains": [
+      "A"
+    ],
+    "assembly_in_file": "monomer (single chain A)",
+    "biological_assembly": "p53 is an obligate tetramer; not represented in this file",
+    "mutations_present": "none - canonical wild-type at every position",
+    "hotspots_checked": {
+      "175": "R",
+      "245": "G",
+      "248": "R",
+      "249": "R",
+      "273": "R",
+      "282": "R"
+    }
+  },
+  "rule": {
+    "statement": "Flag any residue in 94-312 with local pLDDT < 70.0; rank ascending; ties share a rank.",
+    "cutoff": 70.0,
+    "tiers": {
+      "very low": "<50",
+      "low": "50 to <70"
+    },
+    "provenance": "Corresponds to the AlphaFold confidence banding used by the AlphaFold DB (>90 very high, 70-90 confident, 50-70 low, <50 very low); 70 is the documented boundary below which backbone placement should not be relied upon.",
+    "blinding_disclosure": "The files were loaded and inspected before this cutoff was fixed, so it is a reproducible post-inspection threshold, NOT a prospectively pre-declared or blinded cutoff. It must not be described as pre-declared.",
+    "interpretation": "caution/triage list - not an automatic exclusion list"
+  },
+  "scope": {
+    "range": [
+      94,
+      312
+    ],
+    "n_residues": 219,
+    "excluded": {
+      "range": [
+        18,
+        28
+      ],
+      "reason": "separate N-terminal validation project; owner instruction"
+    }
+  },
+  "counts": {
+    "in_scope": 219,
+    "flagged": 22,
+    "very_low": 17,
+    "low": 5,
+    "ties": 0
+  },
+  "ranked_table": [
+    {
+      "rank": 1,
+      "residue_number": 298,
+      "amino_acid_1": "E",
+      "amino_acid_3": "GLU",
+      "plddt_raw": 39.03,
+      "plddt_display": 39.03,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 2,
+      "residue_number": 311,
+      "amino_acid_1": "N",
+      "amino_acid_3": "ASN",
+      "plddt_raw": 39.53,
+      "plddt_display": 39.53,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 3,
+      "residue_number": 306,
+      "amino_acid_1": "R",
+      "amino_acid_3": "ARG",
+      "plddt_raw": 41.47,
+      "plddt_display": 41.47,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 4,
+      "residue_number": 309,
+      "amino_acid_1": "P",
+      "amino_acid_3": "PRO",
+      "plddt_raw": 41.66,
+      "plddt_display": 41.66,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 5,
+      "residue_number": 302,
+      "amino_acid_1": "G",
+      "amino_acid_3": "GLY",
+      "plddt_raw": 41.88,
+      "plddt_display": 41.88,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 6,
+      "residue_number": 307,
+      "amino_acid_1": "A",
+      "amino_acid_3": "ALA",
+      "plddt_raw": 42.34,
+      "plddt_display": 42.34,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 7,
+      "residue_number": 303,
+      "amino_acid_1": "S",
+      "amino_acid_3": "SER",
+      "plddt_raw": 42.88,
+      "plddt_display": 42.88,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 8,
+      "residue_number": 295,
+      "amino_acid_1": "P",
+      "amino_acid_3": "PRO",
+      "plddt_raw": 44.16,
+      "plddt_display": 44.16,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 9,
+      "residue_number": 300,
+      "amino_acid_1": "P",
+      "amino_acid_3": "PRO",
+      "plddt_raw": 44.44,
+      "plddt_display": 44.44,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 10,
+      "residue_number": 304,
+      "amino_acid_1": "T",
+      "amino_acid_3": "THR",
+      "plddt_raw": 45.09,
+      "plddt_display": 45.09,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 11,
+      "residue_number": 312,
+      "amino_acid_1": "T",
+      "amino_acid_3": "THR",
+      "plddt_raw": 45.59,
+      "plddt_display": 45.59,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 12,
+      "residue_number": 310,
+      "amino_acid_1": "N",
+      "amino_acid_3": "ASN",
+      "plddt_raw": 47.09,
+      "plddt_display": 47.09,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 13,
+      "residue_number": 305,
+      "amino_acid_1": "K",
+      "amino_acid_3": "LYS",
+      "plddt_raw": 47.53,
+      "plddt_display": 47.53,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 14,
+      "residue_number": 299,
+      "amino_acid_1": "L",
+      "amino_acid_3": "LEU",
+      "plddt_raw": 47.84,
+      "plddt_display": 47.84,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 15,
+      "residue_number": 297,
+      "amino_acid_1": "H",
+      "amino_acid_3": "HIS",
+      "plddt_raw": 47.94,
+      "plddt_display": 47.94,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 16,
+      "residue_number": 301,
+      "amino_acid_1": "P",
+      "amino_acid_3": "PRO",
+      "plddt_raw": 49.06,
+      "plddt_display": 49.06,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 17,
+      "residue_number": 296,
+      "amino_acid_1": "H",
+      "amino_acid_3": "HIS",
+      "plddt_raw": 49.81,
+      "plddt_display": 49.81,
+      "tier": "very low (<50)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 18,
+      "residue_number": 308,
+      "amino_acid_1": "L",
+      "amino_acid_3": "LEU",
+      "plddt_raw": 51.88,
+      "plddt_display": 51.88,
+      "tier": "low (50-70)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 19,
+      "residue_number": 294,
+      "amino_acid_1": "E",
+      "amino_acid_3": "GLU",
+      "plddt_raw": 56.25,
+      "plddt_display": 56.25,
+      "tier": "low (50-70)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 20,
+      "residue_number": 293,
+      "amino_acid_1": "G",
+      "amino_acid_3": "GLY",
+      "plddt_raw": 67.06,
+      "plddt_display": 67.06,
+      "tier": "low (50-70)",
+      "region": "edge/linker 293-312"
+    },
+    {
+      "rank": 21,
+      "residue_number": 185,
+      "amino_acid_1": "S",
+      "amino_acid_3": "SER",
+      "plddt_raw": 68.44,
+      "plddt_display": 68.44,
+      "tier": "low (50-70)",
+      "region": "DBD 94-292"
+    },
+    {
+      "rank": 22,
+      "residue_number": 183,
+      "amino_acid_1": "S",
+      "amino_acid_3": "SER",
+      "plddt_raw": 68.81,
+      "plddt_display": 68.81,
+      "tier": "low (50-70)",
+      "region": "DBD 94-292"
+    }
+  ],
+  "region_comparison": {
+    "DBD_94_292": {
+      "n": 199,
+      "mean_plddt": 95.29,
+      "below_70": 2,
+      "percent_below_70": 1.01
+    },
+    "edge_linker_293_312": {
+      "n": 20,
+      "mean_plddt": 46.63,
+      "below_70": 20,
+      "percent_below_70": 100.0
+    }
+  },
+  "cutoff_sensitivity": {
+    "50": {
+      "total": 17,
+      "in_DBD_94_292": 0,
+      "in_293_312": 17
+    },
+    "65": {
+      "total": 19,
+      "in_DBD_94_292": 0,
+      "in_293_312": 19
+    },
+    "70": {
+      "total": 22,
+      "in_DBD_94_292": 2,
+      "in_293_312": 20
+    },
+    "80": {
+      "total": 26,
+      "in_DBD_94_292": 6,
+      "in_293_312": 20
+    },
+    "90": {
+      "total": 33,
+      "in_DBD_94_292": 13,
+      "in_293_312": 20
+    }
+  },
+  "positional_finding": {
+    "flagged_in_DBD_94_292": 2,
+    "flagged_in_293_312": 20,
+    "all_of_293_312_flagged": true,
+    "contiguous_block": true,
+    "statement": "Every residue in 293-312 falls below the cutoff (mean 46.63) while the folded DBD 94-292 averages 95.29 with 1.0% below 70. The shortlist is dominated by the range boundary, consistent with a domain transition rather than isolated problematic residues. The boundary was NOT moved."
+  },
+  "dbd_local_dip": {
+    "residues": {
+      "180": 93.31,
+      "181": 91.62,
+      "182": 84.06,
+      "183": 68.81,
+      "184": 70.25,
+      "185": 68.44,
+      "186": 70.0,
+      "187": 76.19,
+      "188": 82.12,
+      "189": 90.94,
+      "190": 92.94
+    },
+    "statement": "The two DBD hits (183: 68.81, 185: 68.44) are the floor of one local dip spanning ~182-187, flanked by residues above 90. Residue 186 sits at exactly 70.00 and is excluded only by the strict < comparison; 184 at 70.25. Both DBD hits disappear at a cutoff of 65. Treat as borderline, not a robust low-confidence region."
+  },
+  "biological_caveat": {
+    "from_data_alone": {
+      "entity_types": [
+        "polymer"
+      ],
+      "non_polymer_entities": 0,
+      "hetatm_records": 0,
+      "statement": "The model contains the protein chain only - no ions, cofactors, ligands, or PTMs. pLDDT is silent about anything absent from the model."
+    },
+    "with_lookup": {
+      "source": "https://rest.uniprot.org/uniprotkb/P04637 (BINDING annotations, fetched live)",
+      "annotation": "Zn(2+) binding site at residues 176, 179, 238, 242",
+      "modelled_plddt": {
+        "176": 96.5,
+        "179": 94.25,
+        "238": 97.25,
+        "242": 97.44
+      },
+      "statement": "UniProt annotates a structural Zn2+ site at 176/179/238/242. The model represents no zinc, yet scores those four residues at 94-97. High pLDDT reflects agreement with the model's own prediction, not completeness of the biological assembly.",
+      "overreach_guard": "Co-location of the missing cofactor with the 182-187 dip is an observation only. No causal link is demonstrated or claimed."
+    }
+  }
+}
