@@ -1,4 +1,16 @@
-"""Generate slides.html from results/results.json and the mmCIF.
+"""RETIRED — generated the FIRST version of slides.html. Do not run.
+
+slides.html is now hand-maintained: Jakub edits its phrasing directly, and this
+script would silently overwrite those edits and revert them to generated text.
+
+Use ../check_slides.py instead. It verifies, non-destructively, that every figure
+in the deck still agrees with results/results.json — which is the guarantee this
+generator existed to provide, without the overwrite risk.
+
+Kept only as the record of how the deck and its embedded structure were first built.
+
+--- original docstring ---
+Generate slides.html from results/results.json and the mmCIF.
 
 Self-contained: the structure and every figure are embedded, so the deck needs no
 local files at presentation time. Only 3Dmol.js is fetched from a CDN, and the deck

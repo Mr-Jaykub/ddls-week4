@@ -73,14 +73,14 @@ strong{color:#fff;font-weight:650}
   <h1>Can you trust<br>a <em>predicted</em> shape?</h1>
   <p class="lead" style="max-width:58ch">A cancer researcher has an AI-predicted 3D model of p53
   &mdash; a protein that goes wrong in roughly half of all human tumours. A chemist is about to
-  design a drug against specific positions on it. Her job is to warn him off the ones the model
+  design a drug against specific positions on it. We needed to identify positions the model
   is not sure about.</p>
   <div class="askbox">
-    <div class="askbox-h">What she asked me for</div>
+    <div class="askbox-h">The request</div>
     <p>Go through positions <strong>94&ndash;312</strong> &mdash; the folded core. Flag every one
     the model is <strong>not confident</strong> about. Rank them worst first, using one rule fixed
     in advance.</p>
-    <p style="margin-top:.7rem">Explicitly <em>not</em> a shortlist of good targets &mdash; a
+    <p style="margin-top:.7rem"><em>Not</em> a shortlist of good targets &mdash; a
     <strong>caution list</strong>: &ldquo;check these before you build on them.&rdquo;</p>
   </div>
 </section>
@@ -107,14 +107,14 @@ strong{color:#fff;font-weight:650}
   <ul style="margin-top:1.5rem">
     <li>Her question is about single positions, so <strong>pLDDT</strong> answers it.</li>
     <li class="warn">The file she pointed me to held <strong>only PAE</strong>. The per-position
-    scores were inside the model file all along.</li>
+    scores were inside the model.</li>
     <li>It is her protein: sequence matches exactly, <strong>393 positions</strong>, no mutations.</li>
   </ul>
 </section>
 
 <section class="slide">
   <div class="kicker">What the scores show</div>
-  <h1>Solid, then<br>a cliff</h1>
+  <h1>A sharp drop<br>at position <em>293</em></h1>
   <div class="cols wide">
     <div class="chartbox">
       <div id="chart"></div>
