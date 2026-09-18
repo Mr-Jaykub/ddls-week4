@@ -1394,6 +1394,90 @@
       "rank": 22
     }
   ],
+  "n_terminal_18_28_validation_project": {
+    "scope_note": "Reported separately and excluded from the 94-312 shortlist and its ranking. This is the proposed N-terminal transactivation-region helix, a separate validation project, not a core candidate.",
+    "residues": [
+      {
+        "residue": 18,
+        "amino_acid": "T",
+        "plddt": 68.06
+      },
+      {
+        "residue": 19,
+        "amino_acid": "F",
+        "plddt": 61.56
+      },
+      {
+        "residue": 20,
+        "amino_acid": "S",
+        "plddt": 71.25
+      },
+      {
+        "residue": 21,
+        "amino_acid": "D",
+        "plddt": 72.06
+      },
+      {
+        "residue": 22,
+        "amino_acid": "L",
+        "plddt": 73.62
+      },
+      {
+        "residue": 23,
+        "amino_acid": "W",
+        "plddt": 73.44
+      },
+      {
+        "residue": 24,
+        "amino_acid": "K",
+        "plddt": 75.5
+      },
+      {
+        "residue": 25,
+        "amino_acid": "L",
+        "plddt": 77.12
+      },
+      {
+        "residue": 26,
+        "amino_acid": "L",
+        "plddt": 64.25
+      },
+      {
+        "residue": 27,
+        "amino_acid": "P",
+        "plddt": 63.16
+      },
+      {
+        "residue": 28,
+        "amino_acid": "E",
+        "plddt": 57.66
+      }
+    ],
+    "count": 11,
+    "mean_plddt": 68.88,
+    "min_plddt": 57.66,
+    "max_plddt": 77.12,
+    "below_70_count": 5,
+    "mdm2_contact_residues": [
+      {
+        "residue": 19,
+        "amino_acid": "F",
+        "plddt": 61.56
+      },
+      {
+        "residue": 23,
+        "amino_acid": "W",
+        "plddt": 73.44
+      },
+      {
+        "residue": 26,
+        "amino_acid": "L",
+        "plddt": 64.25
+      }
+    ],
+    "comparison_note": "Stated against the 94-292 folded-core mean for context only. The <70.0 cutoff was applied to 94-312 and is not applied to this segment as a pass/fail rule.",
+    "interpretation": "Local pLDDT describes where the model placed each residue. It cannot establish that this segment holds a helix in isolation, nor an MDM2 interface: the supplied model is a monomer and contains no MDM2. Independent structural or solution evidence, plus partner-binding or mutation data, remains required."
+  },
   "pae": {
     "file": "data/p53_alphafold_pae.json",
     "use": "not used for this local-confidence shortlist; PAE is pairwise relative-placement confidence"

@@ -72,16 +72,51 @@ strong{color:#fff;font-weight:650}
   <div class="kicker">Module 4 &middot; Jakub Palacka</div>
   <h1>Can you trust<br>a <em>predicted</em> shape?</h1>
   <p class="lead" style="max-width:58ch">A cancer researcher has an AI-predicted 3D model of p53
-  &mdash; a protein that goes wrong in roughly half of all human tumours. A chemist is about to
-  design a drug against specific positions on it. We needed to identify positions the model
-  is not sure about.</p>
-  <div class="askbox">
-    <div class="askbox-h">The request</div>
-    <p>Go through positions <strong>94&ndash;312</strong> &mdash; the folded core. Flag every one
-    the model is <strong>not confident</strong> about. Rank them worst first, using one rule fixed
-    in advance.</p>
-    <p style="margin-top:.7rem"><em>Not</em> a shortlist of good targets &mdash; a
-    <strong>caution list</strong>: &ldquo;check these before you build on them.&rdquo;</p>
+  &mdash; a protein that goes wrong in roughly half of all human tumours. A chemist is waiting on
+  her for the exact positions to aim the first compounds at.</p>
+  <p class="lead" style="max-width:58ch;margin-top:1.3rem">She had already chosen them, from the
+  picture. The model draws <em>every</em> position with the same clean, confident line &mdash;
+  and she had read that as the model being sure.</p>
+</section>
+
+<section class="slide">
+  <div class="kicker">Why she called</div>
+  <h1>The helix she<br>almost <em>shipped</em></h1>
+  <div class="cols wide" style="align-items:start">
+    <div>
+      <p class="lead" style="max-width:44ch;font-size:clamp(1rem,1.5vw,1.2rem)">She opened the
+      model and saw a neat helix at positions <strong>18&ndash;28</strong> &mdash; the stretch that
+      grips MDM2, the protein that keeps p53 switched off. Those side chains were what she meant
+      to hand the chemist.</p>
+      <p class="quote" style="margin-top:1.2rem;font-size:clamp(1rem,1.45vw,1.18rem)">&ldquo;That
+      end of p53 is pretty floppy in the tube until it latches onto MDM2 &mdash; but the model
+      shows such a clear helix that I assumed it was fine.&rdquo;</p>
+      <p class="cap" style="margin-top:.7rem">&mdash; her own words, once I asked what the picture
+      was evidence <em>of</em></p>
+    </div>
+    <div>
+      <div class="stat" style="margin-top:0">
+        <div><div class="num amber">68.88</div>
+          <div class="cap">average confidence, 18&ndash;28</div></div>
+        <div><div class="num blue">95.29</div>
+          <div class="cap">average, the folded core</div></div>
+      </div>
+      <ul style="margin-top:1.6rem">
+        <li class="warn">Her helix scores <strong>below 70</strong> &mdash; the same line she later
+        asked me to draw across the core. Two of the three side chains she named, Phe19 and Leu26,
+        sit under it.</li>
+        <li>The model drew it just as crisply as the parts it is sure about. <strong>A tidy picture
+        is not a confident one.</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="askbox" style="margin-top:1.2rem;max-width:none">
+    <div class="askbox-h">So the request changed</div>
+    <p>Park 18&ndash;28 as a <strong>validation project</strong>. Instead: go through positions
+    <strong>94&ndash;312</strong> &mdash; the folded core &mdash; and flag every one the model is
+    <strong>not confident</strong> about, ranked worst first, one rule applied identically to
+    every position. <em>Not</em> a shortlist of good targets &mdash; a <strong>caution
+    list</strong>.</p>
   </div>
 </section>
 
@@ -5002,8 +5037,8 @@ function show(n){
   slides.forEach((s,k)=>s.classList.toggle('on',k===i));
   document.getElementById('bar').style.width=((i+1)/slides.length*100)+'%';
   document.getElementById('count').textContent=(i+1)+' / '+slides.length;
-  if(i===2&&!drawn.chart){drawn.chart=1;chart();}
-  if(i===3&&!drawn.viewer){drawn.viewer=1;viewer();}
+  if(i===3&&!drawn.chart){drawn.chart=1;chart();}
+  if(i===4&&!drawn.viewer){drawn.viewer=1;viewer();}
 }
 addEventListener('keydown',e=>{
   if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(i+1);}

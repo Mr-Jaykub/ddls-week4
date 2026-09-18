@@ -23,6 +23,7 @@ reg = R["regional_comparison"]
 alt = R["alternative_cutoff_counts"]
 flagged = R["ranked_flagged_residues"]
 series = R["per_residue_plddt_94_312"]
+nterm = R["n_terminal_18_28_validation_project"]
 
 n_flag = R["summary"]["passing_count"]
 n_tail = sum(1 for f in flagged if f["residue"] >= 293)
@@ -75,6 +76,10 @@ CHECKS = [
     ("boundary residue",         "293",                                "the drop at 293"),
     ("sequence length",          "393",                                "393 positions"),
     ("excluded region start",    "18",                                 "18-28 out of scope"),
+    ("excluded region end",      "28",                                 "18-28 out of scope"),
+    ("N-terminal mean pLDDT",    f'{nterm["mean_plddt"]:.2f}',         "68.88, the helix she almost shipped"),
+    ("named MDM2 contact",       "Phe19",                              "Phe19 sits below the cut-off"),
+    ("named MDM2 contact",       "Leu26",                              "Leu26 sits below the cut-off"),
 ]
 
 missing = [(label, val, hint) for label, val, hint in CHECKS if val not in prose]
@@ -85,6 +90,23 @@ if reg["94-292"]["below_65_count"] != 0 and "65" in prose:
     claim_errors.append(
         f'deck says the core hits vanish at 65, but results.json reports '
         f'{reg["94-292"]["below_65_count"]} core residues below 65')
+# the N-terminal slide claims her helix scores below the line she gave us for the core,
+# and that the two side chains it names sit under it
+if nterm["mean_plddt"] >= cut:
+    claim_errors.append(
+        f'deck says the 18-28 helix scores below the cut-off, but its mean pLDDT is '
+        f'{nterm["mean_plddt"]} against a cut-off of {cut}')
+under = {c["residue"] for c in nterm["mdm2_contact_residues"] if c["plddt"] < cut}
+for residue, name in ((19, "Phe19"), (26, "Leu26")):
+    if name in prose and residue not in under:
+        contact = next(c for c in nterm["mdm2_contact_residues"] if c["residue"] == residue)
+        claim_errors.append(
+            f'deck names {name} as sitting below {cut}, but results.json reports '
+            f'{contact["plddt"]}')
+if nterm["mean_plddt"] >= reg["94-292"]["mean_plddt"]:
+    claim_errors.append("deck contrasts the helix with a better-scoring core, but the "
+                        "core no longer scores higher")
+
 if alt["below_65"] != 19 or alt["below_80"] != 26:
     claim_errors.append(f'sensitivity counts changed: <65={alt["below_65"]}, <80={alt["below_80"]}')
 

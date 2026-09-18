@@ -197,6 +197,36 @@ def main() -> None:
             for i in range(180, 191)
         ],
         "ranked_flagged_residues": flagged,
+        "n_terminal_18_28_validation_project": {
+            "scope_note": (
+                "Reported separately and excluded from the 94-312 shortlist and its ranking. "
+                "This is the proposed N-terminal transactivation-region helix, a separate "
+                "validation project, not a core candidate."
+            ),
+            "residues": [
+                {"residue": i, "amino_acid": sequence[i - 1], "plddt": round(plddt[i], 2)}
+                for i in range(18, 29)
+            ],
+            "count": 11,
+            "mean_plddt": round(sum(plddt[i] for i in range(18, 29)) / 11, 2),
+            "min_plddt": round(min(plddt[i] for i in range(18, 29)), 2),
+            "max_plddt": round(max(plddt[i] for i in range(18, 29)), 2),
+            "below_70_count": sum(plddt[i] < 70 for i in range(18, 29)),
+            "mdm2_contact_residues": [
+                {"residue": i, "amino_acid": sequence[i - 1], "plddt": round(plddt[i], 2)}
+                for i in (19, 23, 26)
+            ],
+            "comparison_note": (
+                "Stated against the 94-292 folded-core mean for context only. The <70.0 cutoff "
+                "was applied to 94-312 and is not applied to this segment as a pass/fail rule."
+            ),
+            "interpretation": (
+                "Local pLDDT describes where the model placed each residue. It cannot establish "
+                "that this segment holds a helix in isolation, nor an MDM2 interface: the "
+                "supplied model is a monomer and contains no MDM2. Independent structural or "
+                "solution evidence, plus partner-binding or mutation data, remains required."
+            ),
+        },
         "pae": {
             "file": "data/p53_alphafold_pae.json",
             "use": "not used for this local-confidence shortlist; PAE is pairwise relative-placement confidence",
