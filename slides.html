@@ -86,15 +86,14 @@ strong{color:#fff;font-weight:650}
   <h1>The helix she<br>almost <em>shipped</em></h1>
   <div class="cols wide" style="align-items:start">
     <div>
-      <p class="lead" style="max-width:44ch;font-size:clamp(1rem,1.5vw,1.2rem)">She opened the
-      model and saw a neat helix at positions <strong>18&ndash;28</strong> &mdash; the stretch that
-      grips MDM2, the protein that keeps p53 switched off. Those side chains were what she meant
-      to hand the chemist.</p>
+      <p class="lead" style="max-width:44ch;font-size:clamp(1rem,1.5vw,1.2rem)">She saw a neat helix
+      at positions <strong>18&ndash;28</strong> &mdash; the stretch that grips MDM2, the protein that
+      keeps p53 switched off. Those side chains were what the chemist was going to get.</p>
       <p class="quote" style="margin-top:1.2rem;font-size:clamp(1rem,1.45vw,1.18rem)">&ldquo;That
       end of p53 is pretty floppy in the tube until it latches onto MDM2 &mdash; but the model
       shows such a clear helix that I assumed it was fine.&rdquo;</p>
-      <p class="cap" style="margin-top:.7rem">&mdash; her own words, once I asked what the picture
-      was evidence <em>of</em></p>
+      <p class="cap" style="margin-top:.7rem">&mdash; her words, once I asked what the picture was
+      evidence <em>of</em></p>
     </div>
     <div>
       <div class="stat" style="margin-top:0">
@@ -106,31 +105,28 @@ strong{color:#fff;font-weight:650}
           <div class="cap">average, the folded core</div></div>
       </div>
       <ul style="margin-top:1.5rem">
-        <li class="warn"><strong>5 of its 11 positions</strong> fall below 70 &mdash; the same line
-        she later asked me to draw across the core &mdash; including Phe19 and Leu26, two of the
-        three side chains she had named.</li>
+        <li class="warn"><strong>5 of its 11 positions</strong> fall below 70 &mdash; the line she later
+        set for the core &mdash; including Phe19 and Leu26, two of the three she named.</li>
         <li>The model drew it just as crisply as the parts it is sure about. <strong>A tidy picture
         is not a confident one.</strong></li>
-        <li class="bad"><strong>The verdict:</strong> on its own numbers, this model does not
-        support 18&ndash;28 as a rigid target. Validate it first &mdash; don&rsquo;t design against it.</li>
+        <li class="bad"><strong>Verdict:</strong> on its own numbers, this model does not support
+        18&ndash;28 as a rigid target. Validate first; don&rsquo;t design against it.</li>
       </ul>
     </div>
   </div>
   <div class="askbox" style="margin-top:1.2rem;max-width:none">
     <div class="askbox-h">So the request changed</div>
-    <p>Park 18&ndash;28 as a <strong>validation project</strong>. Instead: go through positions
-    <strong>94&ndash;312</strong> &mdash; the folded core &mdash; and flag every one the model is
-    <strong>not confident</strong> about, ranked worst first, one rule applied identically to
-    every position. <em>Not</em> a shortlist of good targets &mdash; a <strong>caution
-    list</strong>.</p>
+    <p>Park 18&ndash;28 as a <strong>validation project</strong>. Instead: flag every position in
+    <strong>94&ndash;312</strong> the model is <strong>not confident</strong> about, worst first, one
+    rule for all. <em>Not</em> good targets &mdash; a <strong>caution list</strong>.</p>
   </div>
 </section>
 
 <section class="slide">
   <div class="kicker">Two kinds of confidence</div>
   <h1>Which number<br>answers it?</h1>
-  <p class="lead" style="max-width:64ch;margin-bottom:0">The AI marks its own work &mdash; and
-  hands back two different confidence scores.</p>
+  <p class="lead" style="max-width:64ch;margin-bottom:0">The AI marks its own work &mdash; in two
+  different ways.</p>
   <div class="two" style="margin-top:1.4rem">
     <div>
       <h3 class="term">pLDDT <span>&mdash; predicted Local Distance Difference Test</span></h3>
@@ -147,8 +143,8 @@ strong{color:#fff;font-weight:650}
   </div>
   <ul style="margin-top:1.5rem">
     <li>Her question is about single positions, so <strong>pLDDT</strong> answers it.</li>
-    <li class="warn">The file she pointed me to held <strong>only PAE</strong>. The per-position
-    scores were inside the model.</li>
+    <li class="warn">The file she pointed me to held <strong>only PAE</strong> &mdash; the
+    per-position scores were inside the model.</li>
     <li>It is her protein: sequence matches exactly, <strong>393 positions</strong>, no mutations.</li>
   </ul>
 </section>
@@ -210,8 +206,8 @@ strong{color:#fff;font-weight:650}
   <div class="kicker">The other metric, finally used</div>
   <h1>Where the confident<br>fold <em>ends</em></h1>
   <p class="lead" style="max-width:66ch;margin-bottom:0">&ldquo;Is that tail actually attached to
-  the core?&rdquo; is a question about <strong>relative placement</strong> &mdash; so PAE answers
-  it, not pLDDT. The matrix was sitting in the file she sent me.</p>
+  the core?&rdquo; is about <strong>relative placement</strong> &mdash; so PAE answers it, not
+  pLDDT. The matrix was in the file she sent me.</p>
   <div class="cols wide" style="align-items:start;margin-top:1.6rem">
     <div>
       <div class="stat" style="margin-top:0">
@@ -221,56 +217,26 @@ strong{color:#fff;font-weight:650}
           <div class="cap">tail, placed against that core</div></div>
       </div>
       <ul style="margin-top:1.5rem">
-        <li class="bad">28.1 &aring; sits near <strong>31.75</strong> &mdash; the highest number
-        this file can express. The model is not placing the tail badly; it is saying it
-        <strong>does not know</strong> where the tail goes.</li>
-        <li>Two different measures, asked two different questions, both turn at
-        <strong>293</strong>. That is the strongest thing in the analysis.</li>
+        <li class="bad">28.1 &aring; is near <strong>31.75</strong>, the highest this file can express.
+        The model is not placing the tail badly &mdash; it <strong>does not know</strong> where it
+        goes.</li>
+        <li>Two measures, two questions, both turn at <strong>293</strong>.</li>
       </ul>
     </div>
     <div>
       <div class="panel">
-        <h3 class="term">The call is hers, not mine</h3>
-        <p style="font-size:.98rem;line-height:1.6;color:#ded9cc">The confident fold ends near
-        <strong>292</strong>, not 312. I kept her range exactly where she set it and screened all
-        219 positions &mdash; but the finding is a <strong>boundary decision</strong>, and it
-        belongs to her.</p>
+        <h3 class="term">What she got, and what is hers to decide</h3>
+        <p style="font-size:.98rem;line-height:1.6;color:#ded9cc">She got <strong>22 positions</strong>,
+        worst first, with the rule printed on the list so the chemist can re-apply it himself.</p>
+        <p style="font-size:.98rem;line-height:1.6;color:#ded9cc;margin-top:.9rem">The confident fold
+        ends near <strong>292</strong>, not 312. I screened her range as set &mdash; but this is a
+        <strong>boundary decision</strong>, and it is hers.</p>
         <p style="font-size:.98rem;line-height:1.6;color:#ded9cc;margin-top:.9rem">Keep 94&ndash;312
-        and the caution list stays mostly a description of her own edge. Move it to 94&ndash;292 and
-        the list becomes <strong>two borderline positions</strong>, both of which vanish at a
-        cut-off of 65.</p>
+        and the list mostly describes her own edge. Move to 94&ndash;292 and it becomes <strong>two
+        borderline positions</strong>, both gone at a cut-off of 65.</p>
       </div>
     </div>
   </div>
-</section>
-
-<section class="slide">
-  <div class="kicker">The delivery</div>
-  <h1>What I<br>sent back</h1>
-  <div class="two" style="margin-top:0">
-    <div>
-      <h3 class="term">The list she asked for</h3>
-      <p><strong>22 positions</strong> ranked worst first, each labelled
-      <span style="color:var(--danger)">don&rsquo;t rely on it</span> or
-      <span style="color:var(--amber)">treat with caution</span>, with the rule printed on it so
-      the chemist can re-apply it without asking us.</p>
-    </div>
-    <div>
-      <h3 class="term">Two things she didn&rsquo;t ask for</h3>
-      <p>Her range runs <strong>20 positions past</strong> the fold &mdash; so most of the list is
-      her boundary, not a defect. And the file she pointed me at <strong>cannot</strong> answer her
-      question.</p>
-    </div>
-  </div>
-  <ul style="margin-top:1.6rem;max-width:62ch">
-    <li>Inside the real fold, only <strong>1.01%</strong> of positions were flagged
-    &mdash; and both of those sit on the line. She asked which parts the model is unsure of, and
-    the answer is <strong>almost none of them</strong>.</li>
-    <li class="warn">That is <em>not</em> the same as saying those positions are good targets. A
-    high score means the model is confident <strong>where it put the atoms</strong> &mdash;
-    nothing about whether a drug could bind there. She asked me not to pick targets, and I
-    didn&rsquo;t.</li>
-  </ul>
 </section>
 
 <section class="slide">
@@ -278,27 +244,25 @@ strong{color:#fff;font-weight:650}
   <h1>Who did what</h1>
   <div class="two">
     <div><h3>Pi &mdash; the analyst</h3>
-      <p>Wrote the spec, the analysis script, the results file and the viewer. On its own it
-      found that position 183 is known to carry a <strong>chemical tag</strong> the cell adds
-      after the protein is built &mdash; and correctly refused to claim that explained the dip
-      in confidence there.</p></div>
+      <p>Wrote the spec, the script, the results file and the viewer. Found unprompted that position
+      183 carries a <strong>chemical tag</strong> the cell adds later &mdash; and refused to claim
+      that explained the dip.</p></div>
     <div><h3>Claude &mdash; independent review</h3>
-      <p>Found that the companion file had no per-position scores at all. Suggested areas to probe
-      and drafted possible questions for my second interview round.</p></div>
+      <p>Found the companion file had no per-position scores at all. Drafted questions for my second
+      interview round.</p></div>
   </div>
   <div class="askbox" style="margin-top:1.5rem;max-width:none">
     <div class="askbox-h">Verification &mdash; why these numbers should be believed</div>
-    <p>Two people writing the same script twice proves nothing. So the screen was rebuilt
-    <strong>independently</strong> &mdash; a separate parser, separate libraries, no shared code with
-    the first &mdash; and returned the <strong>same 22 positions, the same ranking, the same
-    values</strong>. The file also carries each position&rsquo;s confidence <strong>twice</strong>;
-    I read both columns and compared them: <strong>393 of 393 agree, zero differences</strong>.</p>
+    <p>Running one script twice proves nothing. The screen was rebuilt
+    <strong>independently</strong> &mdash; separate parser, separate libraries, no shared code &mdash;
+    and returned the <strong>same 22 positions, same ranking, same values</strong>. The file stores
+    each confidence <strong>twice</strong>; both columns agree, <strong>393 of 393</strong>.</p>
   </div>
   <ul style="margin-top:1.4rem">
-    <li><strong>Me:</strong> ran the interview, chose which questions to ask, set the cut-off, and
-    decided what to refuse.</li>
-    <li class="warn">The cut-off was chosen <strong>after</strong> I had looked at the files &mdash;
-    reproducible, but not blind. I say so in the report.</li>
+    <li><strong>Me:</strong> ran the interview, chose the questions, set the cut-off, decided what to
+    refuse.</li>
+    <li class="warn">The cut-off was chosen <strong>after</strong> I saw the files &mdash;
+    reproducible, but not blind. The report says so.</li>
   </ul>
 </section>
 
@@ -306,16 +270,17 @@ strong{color:#fff;font-weight:650}
   <div class="kicker">Limits &amp; next step</div>
   <h1>What this<br>cannot tell you</h1>
   <ul style="margin-top:0">
-    <li class="warn">A confidence score only says <em>where the model put an atom</em>. It says
-    nothing about the <strong>chemical tags</strong> the cell adds, the <strong>other molecules</strong>
-    p53 grips onto, or the fact that real p53 works as a <strong>group of four</strong> &mdash;
-    this model is a single copy on its own.</li>
+    <li class="warn">A confidence score only says <em>where the model put an atom</em> &mdash;
+    nothing about the <strong>chemical tags</strong> the cell adds, the <strong>molecules</strong>
+    p53 grips, or the fact that real p53 works as a <strong>group of four</strong>. This model is
+    one copy, alone.</li>
+    <li class="bad">A high score is <em>not</em> a good target &mdash; it says nothing about
+    whether a drug could bind. She asked me not to pick targets, and I didn&rsquo;t.</li>
     <li>I also never checked her 94&ndash;312 range against a source &mdash; and the whole finding
     is about <strong>where that range ends</strong>.</li>
   </ul>
-  <p class="quote" style="margin-top:2.4rem"><strong>Next experiment:</strong> compare positions
-  183 and 185 against a real, measured structure of the folded core &mdash; that is the one result
-  a cut-off cannot settle.</p>
+  <p class="quote" style="margin-top:2rem"><strong>Next experiment:</strong> compare positions 183
+  and 185 against a real, measured structure &mdash; the one result a cut-off cannot settle.</p>
 </section>
 
 </div>
