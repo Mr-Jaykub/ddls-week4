@@ -148,4 +148,3 @@ logic; I took the AlphaFold confidence-band boundaries from both agents without 
 own documentation; and I accepted the owner's statement that 94–312 is the canonical DNA-binding
 core without checking it against a paper or construct record, which matters because the finding
 concerns exactly where that range ends.
-_To be completed by the author._
