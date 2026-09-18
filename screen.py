@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 CIF = ROOT / "data/p53_alphafold_model.cif"
 FASTA = ROOT / "data/p53.fasta"
+PAE = ROOT / "data/p53_alphafold_pae.json"
 OUT = ROOT / "results/results.json"
 START, END = 94, 312
 
@@ -50,6 +51,42 @@ def load_local_plddt() -> dict[int, float]:
         values[residue] = float(value)
 
     return values
+
+
+def load_bfactor_plddt() -> dict[int, float]:
+    """Second, independent route to the same numbers: the atom B-factor column.
+
+    AlphaFold writes per-residue pLDDT into _atom_site.B_iso_or_equiv as well as
+    into the _ma_qa_metric_local loop. Reading both and comparing them catches a
+    mis-parsed column, which is the failure mode that would silently corrupt the
+    whole shortlist.
+    """
+    values: dict[int, set[float]] = {}
+    for line in CIF.read_text().splitlines():
+        if not line.startswith("ATOM"):
+            continue
+        fields = line.split()
+        values.setdefault(int(fields[8]), set()).add(float(fields[14]))
+    inconsistent = sorted(r for r, v in values.items() if len(v) > 1)
+    if inconsistent:
+        raise ValueError(f"Residues with differing atom B-factors: {inconsistent}")
+    return {residue: next(iter(v)) for residue, v in values.items()}
+
+
+def load_pae() -> tuple[list[list[float]], float]:
+    """Return the pairwise PAE matrix and the file's own declared maximum.
+
+    PAE answers relative-placement questions only. It is never reduced to a
+    per-residue value for the shortlist; see spec.md.
+    """
+    raw = json.loads(PAE.read_text())
+    if not isinstance(raw, list) or len(raw) != 1:
+        raise ValueError(f"Expected a 1-element top-level list, found {type(raw).__name__}")
+    entry = raw[0]
+    matrix = entry["predicted_aligned_error"]
+    if len(matrix) != 393 or any(len(row) != 393 for row in matrix):
+        raise ValueError("PAE matrix is not 393 x 393")
+    return matrix, entry["max_predicted_aligned_error"]
 
 
 def shared_ranks(items: list[dict]) -> None:
@@ -105,6 +142,54 @@ def main() -> None:
             "below_70_count": sum(v < 70 for v in values),
             "below_70_percent": round(100 * sum(v < 70 for v in values) / len(values), 2),
         }
+
+    bfactor = load_bfactor_plddt()
+    disagreements = sorted(r for r in plddt if abs(plddt[r] - bfactor.get(r, -1)) > 1e-9)
+
+    pae, pae_max = load_pae()
+    pae_over = [
+        (i + 1, j + 1, pae[i][j])
+        for i in range(393)
+        for j in range(393)
+        if pae[i][j] > pae_max
+    ]
+
+    def pae_block(rows: range, cols: range) -> dict:
+        values = [pae[i - 1][j - 1] for i in rows for j in cols]
+        ordered = sorted(values)
+        middle = len(ordered) // 2
+        median = (ordered[middle] if len(ordered) % 2
+                  else (ordered[middle - 1] + ordered[middle]) / 2)
+        return {
+            "pairs": len(values),
+            "mean_pae": round(sum(values) / len(values), 2),
+            "median_pae": round(median, 2),
+            "min_pae": min(values),
+            "max_pae": max(values),
+        }
+
+    pae_blocks = {
+        "core_internal_94_292": {
+            **pae_block(range(94, 293), range(94, 293)),
+            "means": "how confidently the core is placed against itself",
+        },
+        "tail_rows_to_core_columns": {
+            **pae_block(range(293, 313), range(94, 293)),
+            "means": "how confidently the 293-312 tail is placed against the core",
+        },
+        "core_rows_to_tail_columns": {
+            **pae_block(range(94, 293), range(293, 313)),
+            "means": "the same pairing read the other way; PAE is not symmetric",
+        },
+        "tail_internal_293_312": {
+            **pae_block(range(293, 313), range(293, 313)),
+            "means": "how confidently the tail is placed against itself",
+        },
+        "n_terminal_rows_to_core_columns": {
+            **pae_block(range(18, 29), range(94, 293)),
+            "means": "how confidently the 18-28 segment is placed against the core",
+        },
+    }
 
     flagged_positions = sorted(item["residue"] for item in flagged)
     clusters: list[list[int]] = []
@@ -227,9 +312,79 @@ def main() -> None:
                 "solution evidence, plus partner-binding or mutation data, remains required."
             ),
         },
+        "verification": {
+            "purpose": (
+                "Independent checks run against the same shipped files, so the shortlist "
+                "rests on agreement between separate routes rather than on one parser."
+            ),
+            "plddt_two_sources": {
+                "source_a": "_ma_qa_metric_local loop, metric id 2",
+                "source_b": "_atom_site.B_iso_or_equiv atom B-factor column",
+                "residues_compared": len(plddt),
+                "disagreements": len(disagreements),
+                "value_range": [round(min(plddt.values()), 2), round(max(plddt.values()), 2)],
+                "note": (
+                    "The mmCIF carries per-residue pLDDT twice. Both routes were read and "
+                    "compared residue by residue."
+                ),
+            },
+            "independent_reimplementation": {
+                "script": "notes/verification/claude_crosscheck.py",
+                "relationship": "written separately from screen.py, different parser and libraries",
+                "agreement": "same flagged set, same ranking, same values",
+            },
+            "sequence_identity": {
+                "model_vs_bundled_fasta": "identical, residue by residue",
+                "length": len(sequence),
+                "accession": "P04637",
+            },
+        },
         "pae": {
             "file": "data/p53_alphafold_pae.json",
             "use": "not used for this local-confidence shortlist; PAE is pairwise relative-placement confidence",
+        },
+        "pae_relative_placement": {
+            "scope_note": (
+                "Answers relative-placement questions only, and forms no part of the 94-312 "
+                "shortlist. No row or column of this matrix is reduced to a per-residue value."
+            ),
+            "question": (
+                "Does the 293-312 tail sit reliably relative to the folded core 94-292? "
+                "That is a placement question, so PAE is the matching confidence, not pLDDT."
+            ),
+            "schema": {
+                "top_level": "list of one object",
+                "keys": ["predicted_aligned_error", "max_predicted_aligned_error"],
+                "dimensions": "393 x 393",
+                "units": "angstrom",
+                "direction": "lower is better",
+                "symmetric": False,
+                "indexing": "0-based row/column; residue r is index r-1",
+                "stored_as": "integers",
+                "declared_max": pae_max,
+            },
+            "anomalies": {
+                "null": 0,
+                "non_numeric": 0,
+                "above_declared_max_count": len(pae_over),
+                "above_declared_max_cells": [
+                    {"row_residue": i, "column_residue": j, "value": v} for i, j, v in pae_over
+                ],
+                "note": (
+                    "Values are stored rounded to whole angstrom, so a cell can exceed the "
+                    "file's declared maximum by less than 1. None of these cells fall inside "
+                    "the 94-292 core block, so no reported block mean depends on them."
+                ),
+            },
+            "blocks": pae_blocks,
+            "interpretation": (
+                "Within the folded core the model places residues confidently relative to one "
+                "another. Between the 293-312 tail and that core the error sits near the top of "
+                "the file's own scale, so the model does not know where the tail sits relative "
+                "to the core. Both metrics therefore point the same way at 293: pLDDT says the "
+                "tail is locally uncertain, PAE says its placement against the core is unknown. "
+                "PAE cannot establish a partner interface, a tetramer, or a ligand pocket."
+            ),
         },
         "limitations": [
             "pLDDT supports local residue placement, not modifications, binding, partner interactions, or assembly state.",

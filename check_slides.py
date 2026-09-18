@@ -24,6 +24,12 @@ alt = R["alternative_cutoff_counts"]
 flagged = R["ranked_flagged_residues"]
 series = R["per_residue_plddt_94_312"]
 nterm = R["n_terminal_18_28_validation_project"]
+pae_blocks = R["pae_relative_placement"]["blocks"]
+pae_schema = R["pae_relative_placement"]["schema"]
+ver = R["verification"]["plddt_two_sources"]
+
+core_pae = pae_blocks["core_internal_94_292"]["mean_pae"]
+tail_pae = pae_blocks["tail_rows_to_core_columns"]["mean_pae"]
 
 n_flag = R["summary"]["passing_count"]
 n_tail = sum(1 for f in flagged if f["residue"] >= 293)
@@ -80,6 +86,15 @@ CHECKS = [
     ("N-terminal mean pLDDT",    f'{nterm["mean_plddt"]:.2f}',         "68.88, the helix she almost shipped"),
     ("named MDM2 contact",       "Phe19",                              "Phe19 sits below the cut-off"),
     ("named MDM2 contact",       "Leu26",                              "Leu26 sits below the cut-off"),
+    ("N-terminal worst pLDDT",   f'{nterm["min_plddt"]:.2f}',          "57.66, worst position in 18-28"),
+    ("N-terminal below-70 count", f'{nterm["below_70_count"]} of its {nterm["count"]}',
+                                                                       "5 of its 11 positions"),
+    ("core-internal mean PAE",   str(core_pae),                        "3.6 angstrom within the core"),
+    ("tail-to-core mean PAE",    str(tail_pae),                        "28.1 angstrom, tail vs core"),
+    ("PAE declared maximum",     str(pae_schema["declared_max"]),      "31.75, the top of the scale"),
+    ("fold end residue",         "292",                                "the confident fold ends near 292"),
+    ("pLDDT sources compared",   f'{ver["residues_compared"]} of {ver["residues_compared"]}',
+                                                                       "393 of 393 agree"),
 ]
 
 missing = [(label, val, hint) for label, val, hint in CHECKS if val not in prose]
@@ -106,6 +121,27 @@ for residue, name in ((19, "Phe19"), (26, "Leu26")):
 if nterm["mean_plddt"] >= reg["94-292"]["mean_plddt"]:
     claim_errors.append("deck contrasts the helix with a better-scoring core, but the "
                         "core no longer scores higher")
+
+# the PAE slide claims the tail's placement against the core is near the top of the file's
+# own scale, and that the core is placed against itself far more confidently
+if tail_pae <= core_pae:
+    claim_errors.append(
+        f'deck says the tail is placed far less confidently than the core is against itself, '
+        f'but tail-to-core PAE is {tail_pae} and core-internal PAE is {core_pae}')
+if tail_pae < 0.8 * pae_schema["declared_max"]:
+    claim_errors.append(
+        f'deck says tail-to-core PAE sits near the declared maximum '
+        f'{pae_schema["declared_max"]}, but it is {tail_pae}')
+if any(c["row_residue"] in range(94, 293) and c["column_residue"] in range(94, 293)
+       for c in R["pae_relative_placement"]["anomalies"]["above_declared_max_cells"]):
+    claim_errors.append("a PAE cell above the declared maximum now falls inside the core block, "
+                        "so results.json can no longer say no block mean depends on them")
+
+# the verification slide is only worth making if the two pLDDT sources still agree exactly
+if ver["disagreements"] != 0 and "zero differences" in prose:
+    claim_errors.append(
+        f'deck says the two pLDDT columns agree exactly, but results.json reports '
+        f'{ver["disagreements"]} disagreements')
 
 if alt["below_65"] != 19 or alt["below_80"] != 26:
     claim_errors.append(f'sensitivity counts changed: <65={alt["below_65"]}, <80={alt["below_80"]}')

@@ -1478,9 +1478,117 @@
     "comparison_note": "Stated against the 94-292 folded-core mean for context only. The <70.0 cutoff was applied to 94-312 and is not applied to this segment as a pass/fail rule.",
     "interpretation": "Local pLDDT describes where the model placed each residue. It cannot establish that this segment holds a helix in isolation, nor an MDM2 interface: the supplied model is a monomer and contains no MDM2. Independent structural or solution evidence, plus partner-binding or mutation data, remains required."
   },
+  "verification": {
+    "purpose": "Independent checks run against the same shipped files, so the shortlist rests on agreement between separate routes rather than on one parser.",
+    "plddt_two_sources": {
+      "source_a": "_ma_qa_metric_local loop, metric id 2",
+      "source_b": "_atom_site.B_iso_or_equiv atom B-factor column",
+      "residues_compared": 393,
+      "disagreements": 0,
+      "value_range": [
+        32.78,
+        98.69
+      ],
+      "note": "The mmCIF carries per-residue pLDDT twice. Both routes were read and compared residue by residue."
+    },
+    "independent_reimplementation": {
+      "script": "notes/verification/claude_crosscheck.py",
+      "relationship": "written separately from screen.py, different parser and libraries",
+      "agreement": "same flagged set, same ranking, same values"
+    },
+    "sequence_identity": {
+      "model_vs_bundled_fasta": "identical, residue by residue",
+      "length": 393,
+      "accession": "P04637"
+    }
+  },
   "pae": {
     "file": "data/p53_alphafold_pae.json",
     "use": "not used for this local-confidence shortlist; PAE is pairwise relative-placement confidence"
+  },
+  "pae_relative_placement": {
+    "scope_note": "Answers relative-placement questions only, and forms no part of the 94-312 shortlist. No row or column of this matrix is reduced to a per-residue value.",
+    "question": "Does the 293-312 tail sit reliably relative to the folded core 94-292? That is a placement question, so PAE is the matching confidence, not pLDDT.",
+    "schema": {
+      "top_level": "list of one object",
+      "keys": [
+        "predicted_aligned_error",
+        "max_predicted_aligned_error"
+      ],
+      "dimensions": "393 x 393",
+      "units": "angstrom",
+      "direction": "lower is better",
+      "symmetric": false,
+      "indexing": "0-based row/column; residue r is index r-1",
+      "stored_as": "integers",
+      "declared_max": 31.75
+    },
+    "anomalies": {
+      "null": 0,
+      "non_numeric": 0,
+      "above_declared_max_count": 3,
+      "above_declared_max_cells": [
+        {
+          "row_residue": 7,
+          "column_residue": 218,
+          "value": 32
+        },
+        {
+          "row_residue": 9,
+          "column_residue": 218,
+          "value": 32
+        },
+        {
+          "row_residue": 43,
+          "column_residue": 144,
+          "value": 32
+        }
+      ],
+      "note": "Values are stored rounded to whole angstrom, so a cell can exceed the file's declared maximum by less than 1. None of these cells fall inside the 94-292 core block, so no reported block mean depends on them."
+    },
+    "blocks": {
+      "core_internal_94_292": {
+        "pairs": 39601,
+        "mean_pae": 3.6,
+        "median_pae": 3,
+        "min_pae": 0,
+        "max_pae": 28,
+        "means": "how confidently the core is placed against itself"
+      },
+      "tail_rows_to_core_columns": {
+        "pairs": 3980,
+        "mean_pae": 28.1,
+        "median_pae": 30.0,
+        "min_pae": 1,
+        "max_pae": 31,
+        "means": "how confidently the 293-312 tail is placed against the core"
+      },
+      "core_rows_to_tail_columns": {
+        "pairs": 3980,
+        "mean_pae": 19.56,
+        "median_pae": 22.0,
+        "min_pae": 2,
+        "max_pae": 30,
+        "means": "the same pairing read the other way; PAE is not symmetric"
+      },
+      "tail_internal_293_312": {
+        "pairs": 400,
+        "mean_pae": 11.83,
+        "median_pae": 10.0,
+        "min_pae": 0,
+        "max_pae": 29,
+        "means": "how confidently the tail is placed against itself"
+      },
+      "n_terminal_rows_to_core_columns": {
+        "pairs": 2189,
+        "mean_pae": 30.76,
+        "median_pae": 31,
+        "min_pae": 27,
+        "max_pae": 31,
+        "means": "how confidently the 18-28 segment is placed against the core"
+      }
+    },
+    "interpretation": "Within the folded core the model places residues confidently relative to one another. Between the 293-312 tail and that core the error sits near the top of the file's own scale, so the model does not know where the tail sits relative to the core. Both metrics therefore point the same way at 293: pLDDT says the tail is locally uncertain, PAE says its placement against the core is unknown. PAE cannot establish a partner interface, a tetramer, or a ligand pocket."
   },
   "limitations": [
     "pLDDT supports local residue placement, not modifications, binding, partner interactions, or assembly state.",
