@@ -159,6 +159,32 @@ substituting. It should not appear anywhere in the shortlist logic.
 zero differences. 393 residues, single chain A. So her numbering concern is clean, and there is no
 mutant in play.
 
+**Two-column check on the confidence field.** The mmCIF carries per-residue pLDDT twice — in the
+`_ma_qa_metric_local` loop and in the `_atom_site.B_iso_or_equiv` B-factor column. Both were parsed
+independently and compared: **393 of 393 agree, zero differences**, and no residue has inconsistent
+B-factors across its own atoms. A mis-read column would have corrupted the whole ranking silently,
+so this is the check that matters most.
+
+**PAE, used only where it belongs.** Her file is a pairwise 393×393 matrix in ångström, not
+symmetric, stored rounded to whole ångström, with a declared maximum of 31.75. It contributes
+nothing to the ranking. It does answer the one question local pLDDT cannot — *does 293–312 sit
+reliably against the core?* Mean PAE within 94–292 is **3.60 Å**; from 293–312 to that core it is
+**28.10 Å**, at the top of the scale the file can express. The model does not know where the tail
+goes. Both metrics turn at 293, from different parts of the file.
+
+Three cells — (7, 218), (9, 218) and (43, 144) — hold 32, exceeding the declared 31.75 by 0.25,
+which is consistent with the rounding. None is inside the 94–292 block, so no reported figure
+depends on them.
+
+**The N-terminal segment she came in excited about.** Excluded from the ranking, but measured under
+the identical field and rule so the exclusion is not an excuse for silence: 18–28 has mean pLDDT
+**68.88**, worst **57.66**, **5 of 11** residues below 70.00, against 95.29 for the folded core.
+Phe19 **61.56**, Trp23 **73.44**, Leu26 **64.25** — two of the three contact residues she named sit
+below her own core line. PAE from 18–28 to the core averages **30.76 Å**, essentially the ceiling.
+This model does not support the segment as a rigid target, which is consistent with what she
+conceded in the interview. It is not evidence about MDM2 binding either way: the file is a monomer
+and contains no MDM2.
+
 ---
 
 ## 8. Where this leaves the analysis

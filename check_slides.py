@@ -1,11 +1,13 @@
-"""Verify every number in slides.html still agrees with results/results.json.
+"""Verify every number in slides.html and report.md still agrees with results/results.json.
 
 NON-DESTRUCTIVE. Reads both files, writes nothing. Safe to run at any time,
 including after hand-editing the deck's prose.
 
 Division of labour this supports:
-  - Jakub edits phrasing directly in slides.html
+  - Jakub edits phrasing directly in slides.html or report.md
   - Claude runs this to confirm no figure has drifted from the analysis
+
+(The name predates the report check; it now covers both documents.)
 
 Exit code 0 = all figures agree. 1 = at least one mismatch.
 """
@@ -17,6 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 R = json.loads((ROOT / "results/results.json").read_text())
 HTML = (ROOT / "slides.html").read_text()
+REPORT = (ROOT / "report.md").read_text()
 
 # ---------------------------------------------------------------- expectations
 reg = R["regional_comparison"]
@@ -99,6 +102,39 @@ CHECKS = [
 
 missing = [(label, val, hint) for label, val, hint in CHECKS if val not in prose]
 
+# ------------------------------------------------- 3. figures written in report.md
+REPORT_CHECKS = [
+    ("flagged count",             str(n_flag),                               "22 flags"),
+    ("core mean pLDDT",           f'{reg["94-292"]["mean_plddt"]:.2f}',      "95.29"),
+    ("tail mean pLDDT",           f'{reg["293-312"]["mean_plddt"]:.2f}',     "46.63"),
+    ("core percent below 70",     f'{reg["94-292"]["below_70_percent"]:.2f}', "1.01%"),
+    ("residues screened",         str(R["summary"]["core_residues_screened"]), "219 screened"),
+    ("very low tier count",       str(R["summary"]["very_low_count"]),       "17 very low"),
+    ("low tier count",            str(R["summary"]["low_count"]),            "5 low"),
+    ("N-terminal mean pLDDT",     f'{nterm["mean_plddt"]:.2f}',              "68.88"),
+    ("N-terminal worst pLDDT",    f'{nterm["min_plddt"]:.2f}',               "57.66"),
+    ("N-terminal best pLDDT",     f'{nterm["max_plddt"]:.2f}',               "77.12"),
+    ("N-terminal below-70 count", f'**{nterm["below_70_count"]} of {nterm["count"]}**', "5 of 11"),
+    ("core-internal mean PAE",    f'{core_pae:.2f}',                         "3.60 angstrom"),
+    ("tail-to-core mean PAE",     f'{tail_pae:.2f}',                         "28.10 angstrom"),
+    ("core-to-tail mean PAE",     f'{pae_blocks["core_rows_to_tail_columns"]["mean_pae"]:.2f}', "19.56"),
+    ("tail-internal mean PAE",    f'{pae_blocks["tail_internal_293_312"]["mean_pae"]:.2f}', "11.83"),
+    ("N-terminal to core PAE",    f'{pae_blocks["n_terminal_rows_to_core_columns"]["mean_pae"]:.2f}', "30.76"),
+    ("PAE declared maximum",      str(pae_schema["declared_max"]),           "31.75"),
+    ("pLDDT sources compared",    f'{ver["residues_compared"]} of {ver["residues_compared"]}',
+                                                                             "393 of 393 agree"),
+    ("pLDDT value range",         f'{ver["value_range"][0]}\u2013{ver["value_range"][1]}', "32.78-98.69"),
+]
+for contact in nterm["mdm2_contact_residues"]:
+    REPORT_CHECKS.append((f'MDM2 contact {contact["residue"]}',
+                          f'{contact["plddt"]:.2f}', "named contact residue value"))
+for cell in R["pae_relative_placement"]["anomalies"]["above_declared_max_cells"]:
+    REPORT_CHECKS.append((f'PAE anomaly ({cell["row_residue"]}, {cell["column_residue"]})',
+                          f'({cell["row_residue"]}, {cell["column_residue"]})',
+                          "cell above the declared maximum"))
+
+report_missing = [(l, v, h) for l, v, h in REPORT_CHECKS if v not in REPORT]
+
 # the "disappears at 65" claim is only true if nothing in the fold flags below 65
 claim_errors = []
 if reg["94-292"]["below_65_count"] != 0 and "65" in prose:
@@ -170,6 +206,14 @@ if missing:
 else:
     print(f"FIGURES IN PROSE — ok (all {len(CHECKS)} present)")
 
+if report_missing:
+    ok = False
+    print("\nFIGURES IN report.md — NOT FOUND")
+    for label, val, hint in report_missing:
+        print(f"   {label:26} expected {val!r}   ({hint})")
+else:
+    print(f"FIGURES IN report.md — ok (all {len(REPORT_CHECKS)} present)")
+
 if claim_errors:
     ok = False
     print("\nCLAIMS — CHECK")
@@ -179,6 +223,6 @@ else:
     print("CLAIMS — ok (sensitivity at 65/80 unchanged; core hits still vanish below 65)")
 
 print()
-print("PASS — every figure in the deck agrees with the analysis" if ok
+print("PASS — every figure in the deck and the report agrees with the analysis" if ok
       else "FAIL — see above")
 sys.exit(0 if ok else 1)
